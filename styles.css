@@ -1,0 +1,88 @@
+/* Full-page background image and white text */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: url('batts.webp') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Glassy form container */
+  .form-container {
+    background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 700px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Heading */
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+  }
+  
+  /* Info text */
+  .info-text {
+    font-size: 0.95em;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+  
+  /* Form elements */
+  form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="tel"],
+  form input[type="date"],
+  form select,
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  
+  form input::placeholder,
+  form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Checkbox label */
+  form input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  /* Submit button */
+  form input[type="submit"] {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #1669c1;
+  }
+  
