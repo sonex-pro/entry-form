@@ -1,88 +1,145 @@
-/* Full-page background image and white text */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: white;
-    background: url('batts.webp') no-repeat center center fixed;
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: url('batts.webp') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.form-container {
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);           /* subtle blur effect behind */
+  -webkit-backdrop-filter: blur(4px);
+}
+
+h1 {
+  font-family: 'Georgia', serif;
+  color: #ffffff; /* White for better visibility */
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  width: 100%;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7), 
+               -1px -1px 0 #000, 
+               1px -1px 0 #000,
+               -1px 1px 0 #000,
+               1px 1px 0 #000;
+  font-weight: bold;
+}
+
+/* NEW: style for section headings */
+h2 {
+  font-family: 'Georgia', serif;
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin: 1rem 0;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.info-text {
+  font-size: 0.95em;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.info-text ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+a {
+  color: #80bfff;
+}
+
+/* NEW: style lists inside form sections */
+.form-section ul {
+  margin: 0 0 20px 0;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.form-section li {
+  margin-bottom: 10px;
+}
+
+.form-section {
+  display: none;
+}
+
+.form-section.active {
+  display: block;
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="tel"],
+form input[type="date"],
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2); /* translucent input background */
+  color: white;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+form button,
+form input[type="submit"],
+button { /* added generic button for non-form navigation buttons */
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1;
+}
+
+form button:hover,
+form input[type="submit"]:hover,
+button:hover {
+  background-color: #1669c1;
+}
+
+form input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+@media (max-width: 600px) {
+  .buttons {
+    flex-direction: column;
   }
-  
-  /* Glassy form container */
-  .form-container {
-    background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black */
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    padding: 30px;
-    border-radius: 12px;
-    max-width: 700px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  /* Heading */
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-  }
-  
-  /* Info text */
-  .info-text {
-    font-size: 0.95em;
-    margin-bottom: 25px;
-    line-height: 1.5;
-  }
-  
-  /* Form elements */
-  form label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
-  }
-  
-  form input[type="text"],
-  form input[type="email"],
-  form input[type="tel"],
-  form input[type="date"],
-  form select,
-  form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 18px;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-  }
-  
-  form input::placeholder,
-  form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  
-  /* Checkbox label */
-  form input[type="checkbox"] {
-    margin-right: 8px;
-  }
-  
-  /* Submit button */
-  form input[type="submit"] {
-    background-color: #1a73e8;
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    width: 100%;
-  }
-  
-  form input[type="submit"]:hover {
-    background-color: #1669c1;
-  }
+}
+
+
   
