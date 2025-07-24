@@ -8,12 +8,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 20px;
+  padding: 8px;
 }
 
 .form-container {
   background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black */
-  padding: 30px;
+  padding: 20px;
   border-radius: 12px;
   max-width: 800px;
   width: 100%;
@@ -25,7 +25,7 @@ body {
 h1 {
   font-family: 'Georgia', serif;
   color: #ffffff; /* White for better visibility */
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin: 0.5rem 0;
   padding: 0.5rem 0;
   width: 100%;
@@ -61,6 +61,11 @@ h2 {
 
 a {
   color: #80bfff;
+}
+
+.bribar-yellow {
+  color: #ffe100;
+  font-weight: bold;
 }
 
 /* NEW: style lists inside form sections */
