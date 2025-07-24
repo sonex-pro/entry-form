@@ -108,22 +108,26 @@
         <label for="phone">Mobile Phone Number</label>
         <input type="tel" id="phone" name="phone" placeholder="e.g. 07123 456789" required>
 
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="e.g. your.email@example.com" required>
+
         <label for="tte">Table Tennis England Membership Number</label>
-        <input type="text" id="tte" name="tte" placeholder="e.g. 123456" required>
+        <input type="text" id="tte" name="tte" placeholder="e.g. 123456 or N/A" required>
+
+        <label for="other">National Association (if not affiliated to TTE)</label>
+        <input type="text" id="other" name="other" placeholder="e.g. your association or N/A" required>
+
+        <label for="club">Club of affiliation</label>
+        <input type="text" id="club" name="club" placeholder="e.g. your club name" required>
+
+        <label for="county">County of affiliation</label>
+        <input type="text" id="county" name="county" placeholder="e.g. your county name or N/A" required>
 
         <label for="dob">Date of Birth</label>
         <input type="date" id="dob" name="dob" required>
 
         <label for="disability">Disability / Accessibility / Health Issues</label>
-        <textarea id="disability" name="disability" placeholder="Optional"></textarea>
-
-        <label for="undertaking">Player's Undertaking</label>
-        <textarea id="undertaking" name="undertaking" required>I undertake to observe the regulations of the tournament, to abide by the decisions of the Referee, and to fulfil the schedule of play arranged for me unless prevented from doing so by circumstances beyond my control and accepted as such by the Referee.</textarea>
-
-        <label>
-          <input type="checkbox" name="consent" required>
-          I consent to the use by TTE of my personal data in the administration of this competition.
-        </label>
+        <input type="text" id="disability" name="disability" placeholder="Optional">
 
         <div class="buttons">
           <button type="button" class="back-btn">Back</button>
@@ -135,19 +139,48 @@
       <div class="form-section">
         <h1>Section 5</h1>
         <p><strong>Tournament Questions part 2</strong></p>
+        <label style="display:block; margin-top: 1.5em;">
+          <input type="checkbox" name="undertaking_agree" required>
+          <strong>I agree</strong>: to observe the regulations of the tournament, to abide by the decisions of the referee, and to fulfil the schedule of play arranged for me unless prevented from doing so by circumstances beyond my control and accepted as such by the referee.</label>
         
+        <div style="margin-top: 1.5em;">
+          <p>Table Tennis England require consent to the use of personal data in the administration of this competition, in accordance with the TTE Privacy Policy.<br>
+          The information will be shared where necessary with the organisers and event committee.<br>
+          For a player under 16 this consent must be given by a parent or guardian, who must also confirm agreement to the player's participation in the competition, the TTE Privacy Policy is at.<br>
+          <a href="https://www.tabletennisengland.co.uk/privacy-policy/" target="_blank">https://www.tabletennisengland.co.uk/privacy-policy/</a><br>
+          Data protection:<br>
+          I am the player entering the tournament and I consent to the use by TTE of my personal data in the administration of this competition.</p>
+          
+          <label style="display:block; margin-top: 1em;">
+            <input type="checkbox" name="data_protection_agree" required>
+            <strong>I consent</strong> to the use of my personal data in the administration of this competition
+          </label>
+          
+          <div style="margin-top: 1em;" id="adult_consent_section">
+            <label for="adult_name">If you are 16 or over, please enter your name to confirm consent:</label>
+            <input type="text" id="adult_name" name="adult_name" placeholder="Your name or N/A">
+          </div>
+        </div>
 
         <div class="buttons">
           <button type="button" class="back-btn">Back</button>
           <button type="button" class="next-btn">Next</button>
         </div>
       </div>
-
       <!-- Section 6: Tournament Questions part 3 -->
       <div class="form-section">
         <h1>Section 6</h1>
         <p><strong>Tournament Questions part 3</strong></p>
 
+        <label>
+          <input type="checkbox" name="consent" required>
+          I consent to the use by TTE of my personal data in the administration of this competition.
+        </label>
+
+        <label style="display:block; margin-top: 1.5em;">
+          <input type="checkbox" name="undertaking_agree" required>
+          <strong>I agree</strong>: Player’s undertaking: I undertake to observe the regulations of the tournament, to abide by the decisions of the referee, and to fulfil the schedule of play arranged for me unless prevented from doing so by circumstances beyond my control and accepted as such by the referee.
+        </label>
 
         <div class="buttons">
           <button type="button" class="back-btn">Back</button>
@@ -159,9 +192,8 @@
       <div class="form-section">
         <h1>Section 7</h1>
         <p><strong>Tournament Questions part 4</strong></p>
-       
 
-        <div class="buttons">
+       <div class="buttons">
           <button type="button" class="back-btn">Back</button>
           <button type="button" class="next-btn">Next</button>
         </div>
