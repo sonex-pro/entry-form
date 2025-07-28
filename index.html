@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BATTS Open 1-Star Tournament Entry</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .form-section {
+      display: none;
+    }
+    .form-section.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <div id="success-message" style="display: none; background-color: #4CAF50; color: white; text-align: center; padding: 20px; margin: 20px auto; max-width: 800px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">Your entry has been successfully submitted! To secure your place in the Batts 1-Star tournament, please complete the bank transfer. Thank you, and good luck!</div>
@@ -244,6 +252,71 @@
       document.getElementById('success-message').style.display = 'block'; // Show success message
       window.scrollTo(0, 0); // Scroll to top to ensure message is visible
     }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const sections = document.querySelectorAll('.form-section');
+      let currentSectionIndex = 0;
+
+      const nextBtns = document.querySelectorAll('.next-btn');
+      const backBtns = document.querySelectorAll('.back-btn');
+
+      function showSection(index) {
+        sections.forEach((section, i) => {
+          section.classList.toggle('active', i === index);
+        });
+        currentSectionIndex = index;
+      }
+
+      nextBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          if (currentSectionIndex === 3) { // Section 4 -> Section 5
+            if (!validateSection4()) return;
+          }
+          if (currentSectionIndex === 4) { // Section 5 -> Section 6
+            if (!validateSection5()) return;
+          }
+          if (currentSectionIndex < sections.length - 1) {
+            showSection(currentSectionIndex + 1);
+          }
+        });
+      });
+
+      backBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          if (currentSectionIndex > 0) {
+            showSection(currentSectionIndex - 1);
+          }
+        });
+      });
+
+      function validateSection4() {
+        const requiredFields = ['name', 'phone', 'email', 'tte', 'other', 'club', 'county', 'dob'];
+        for (const id of requiredFields) {
+          const field = document.getElementById(id);
+          if (field && !field.value.trim()) {
+            alert('Please complete all required fields in Section 4.');
+            field.focus();
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function validateSection5() {
+        const requiredFields = ['adult_name', 'guardian_name', 'guardian_antidoping'];
+        for (const id of requiredFields) {
+          const field = document.getElementById(id);
+          if (field && !field.value.trim()) {
+            alert('Please complete all required fields in Section 5.');
+            field.focus();
+            return false;
+          }
+        }
+        return true;
+      }
+
+    });
   </script>
 </body>
 </html>
