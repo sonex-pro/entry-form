@@ -8,9 +8,17 @@
   <style>
     .form-section {
       display: none;
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      left: -9999px;
     }
     .form-section.active {
       display: block;
+      opacity: 1;
+      visibility: visible;
+      position: static;
+      left: auto;
     }
   </style>
 </head>
