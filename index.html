@@ -124,7 +124,7 @@
         <input type="text" id="name" name="name" placeholder="Your full name" required>
 
         <label for="phone">Mobile Phone Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="e.g. 07123 456789" required>
+        <input type="tel" id="phone" name="phone" placeholder="e.g. 07123 456789" pattern="[0-9]{11}" title="Please enter exactly 11 digits with no spaces or special characters" required>
 
         <label for="email">Email Address</label>
         <input type="email" id="email" name="email" placeholder="e.g. your.email@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address (e.g. name@example.com)" required>
@@ -329,6 +329,20 @@
               const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
               if (!emailPattern.test(input.value)) {
                 alert('Please enter a valid email address (e.g. name@example.com)');
+                setTimeout(function() {
+                  resetSections();
+                  sections[3].classList.add('active');
+                  input.focus();
+                }, 0);
+                return false;
+              }
+            }
+            
+            // Special validation for phone field
+            if (input.id === 'phone') {
+              const phonePattern = /^[0-9]{11}$/;
+              if (!phonePattern.test(input.value)) {
+                alert('Please enter exactly 11 digits for your phone number with no spaces or special characters');
                 setTimeout(function() {
                   resetSections();
                   sections[3].classList.add('active');
