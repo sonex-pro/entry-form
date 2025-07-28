@@ -266,6 +266,10 @@
       const sections = document.querySelectorAll('.form-section');
       let currentSection = 0;
 
+      // Initialize - make sure only the first section is visible at start
+      resetSections();
+      sections[0].classList.add('active');
+
       const nextButtons = document.querySelectorAll('.next-btn');
       const backButtons = document.querySelectorAll('.back-btn');
 
@@ -283,11 +287,25 @@
         });
       });
 
+      // Helper function to reset all sections to non-active state
+      function resetSections() {
+        sections.forEach(section => {
+          section.classList.remove('active');
+        });
+      }
+
       function goToSection(index) {
         if (index < 0 || index >= sections.length) return;
-        sections[currentSection].classList.remove('active');
+        
+        // Reset all sections to ensure only one is visible
+        resetSections();
+        
+        // Make the target section active
         sections[index].classList.add('active');
         currentSection = index;
+        
+        // Scroll to top of section for better user experience
+        window.scrollTo(0, sections[index].offsetTop - 20);
       }
 
       function validateSection(index) {
@@ -296,12 +314,13 @@
           const requiredInputs = sections[index].querySelectorAll('input[required]');
           for (let input of requiredInputs) {
             if (!input.value.trim()) {
-              // Ensure we stay on/return to section 4
-              window.setTimeout(function() {
-                goToSection(3); // Explicitly go to section 4 (index 3)
-                input.focus();
-              }, 100); // Small timeout to ensure alert is dismissed first
               alert('Please complete all required fields in section 4.');
+              // Force reset of all sections and show only the current one
+              setTimeout(function() {
+                resetSections();
+                sections[3].classList.add('active');
+                input.focus();
+              }, 0);
               return false;
             }
           }
@@ -312,12 +331,13 @@
           const requiredInputs = sections[index].querySelectorAll('input[required]');
           for (let input of requiredInputs) {
             if (!input.value.trim()) {
-              // Ensure we stay on/return to section 5
-              window.setTimeout(function() {
-                goToSection(4); // Explicitly go to section 5 (index 4)
-                input.focus();
-              }, 100); // Small timeout to ensure alert is dismissed first
               alert('Please complete all required fields in section 5.');
+              // Force reset of all sections and show only the current one
+              setTimeout(function() {
+                resetSections();
+                sections[4].classList.add('active');
+                input.focus();
+              }, 0);
               return false;
             }
           }
@@ -328,12 +348,13 @@
           const requiredInputs = sections[index].querySelectorAll('input[required]');
           for (let input of requiredInputs) {
             if (!input.value.trim()) {
-              // Ensure we stay on section 6
-              window.setTimeout(function() {
-                goToSection(5); // Explicitly stay on section 6 (index 5)
-                input.focus();
-              }, 100); // Small timeout to ensure alert is dismissed first
               alert('Please complete all required fields in section 6.');
+              // Force reset of all sections and show only the current one
+              setTimeout(function() {
+                resetSections();
+                sections[5].classList.add('active');
+                input.focus();
+              }, 0);
               return false;
             }
           }
