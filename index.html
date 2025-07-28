@@ -288,8 +288,12 @@
           const requiredInputs = sections[index].querySelectorAll('input[required]');
           for (let input of requiredInputs) {
             if (!input.value.trim()) {
+              // Ensure we stay on/return to section 4
+              window.setTimeout(function() {
+                goToSection(3); // Explicitly go to section 4 (index 3)
+                input.focus();
+              }, 100); // Small timeout to ensure alert is dismissed first
               alert('Please complete all required fields in section 4.');
-              input.focus();
               return false;
             }
           }
@@ -300,14 +304,34 @@
           const requiredInputs = sections[index].querySelectorAll('input[required]');
           for (let input of requiredInputs) {
             if (!input.value.trim()) {
+              // Ensure we stay on/return to section 5
+              window.setTimeout(function() {
+                goToSection(4); // Explicitly go to section 5 (index 4)
+                input.focus();
+              }, 100); // Small timeout to ensure alert is dismissed first
               alert('Please complete all required fields in section 5.');
-              input.focus();
               return false;
             }
           }
         }
 
-        // Add more validations if needed
+        // Section 6 validation if needed
+        if (index === 5) {
+          const requiredInputs = sections[index].querySelectorAll('input[required]');
+          for (let input of requiredInputs) {
+            if (!input.value.trim()) {
+              // Ensure we stay on section 6
+              window.setTimeout(function() {
+                goToSection(5); // Explicitly stay on section 6 (index 5)
+                input.focus();
+              }, 100); // Small timeout to ensure alert is dismissed first
+              alert('Please complete all required fields in section 6.');
+              return false;
+            }
+          }
+        }
+
+        // All validations passed
         return true;
       }
     });
