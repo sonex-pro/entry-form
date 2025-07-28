@@ -1,0 +1,20 @@
+# Ignore sensitive configuration files
+config.js
+
+# Ignore environment variables
+.env
+
+# Ignore form-script.js as it contains the Google Apps Script URL
+form-script.js
+
+# Ignore node modules if you're using npm
+node_modules/
+
+# Ignore OS specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE specific files
+.idea/
+.vscode/
+*.sublime-*

@@ -20,6 +20,15 @@
       position: static;
       left: auto;
     }
+    .required:after {
+      content: ' *';
+      color: red;
+      font-weight: bold;
+    }
+    .required-note {
+      margin-bottom: 20px;
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -120,28 +129,29 @@
       <div class="form-section">
         <h1>Section 4</h1>
         <p><strong>Tournament Questions part 1</strong></p>
-        <label for="name">Name</label>
+        <p class="required-note"><strong>Note:</strong> Fields marked with a red asterisk (<span style="color: red; font-weight: bold;">*</span>) are required.</p>
+        <label for="name" class="required">Name</label>
         <input type="text" id="name" name="name" placeholder="Your full name" required>
 
-        <label for="phone">Mobile Phone Number</label>
+        <label for="phone" class="required">Mobile Phone Number</label>
         <input type="tel" id="phone" name="phone" placeholder="e.g. 07123 456789" pattern="[0-9]{11}" title="Please enter exactly 11 digits with no spaces or special characters" required>
 
-        <label for="email">Email Address</label>
+        <label for="email" class="required">Email Address</label>
         <input type="email" id="email" name="email" placeholder="e.g. your.email@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address (e.g. name@example.com)" required>
 
-        <label for="tte">Table Tennis England Membership Number</label>
+        <label for="tte" class="required">Table Tennis England Membership Number</label>
         <input type="text" id="tte" name="tte" placeholder="e.g. 123456 or N/A" required>
 
-        <label for="other">National Association (if not affiliated to TTE)</label>
+        <label for="other" class="required">National Association (if not affiliated to TTE)</label>
         <input type="text" id="other" name="other" placeholder="e.g. your association or N/A" required>
 
-        <label for="club">Club of affiliation</label>
+        <label for="club" class="required">Club of affiliation</label>
         <input type="text" id="club" name="club" placeholder="e.g. your club name" required>
 
-        <label for="county">County of affiliation</label>
+        <label for="county" class="required">County of affiliation</label>
         <input type="text" id="county" name="county" placeholder="e.g. your county name or N/A" required>
 
-        <label for="dob">Date of Birth (DD/MM/YYYY)</label>
+        <label for="dob" class="required">Date of Birth (DD/MM/YYYY)</label>
         <input type="text" id="dob" name="dob" placeholder="e.g. dd/mm/yyyy" required>
 
         <label for="disability">Disability / Accessibility / Health Issues</label>
@@ -157,26 +167,27 @@
       <div class="form-section">
         <h1>Section 5</h1>
         <p><strong>Tournament Questions part 2</strong></p>
+        <p class="required-note"><strong>Note:</strong> Fields marked with a red asterisk (<span style="color: red; font-weight: bold;">*</span>) are required.</p>
         
         <div style="margin-top: 1.5em;">
           <p>Adult data protection consent:<br>I consent to Table Tennis England (TTE) using my personal data for the administration of this competition, as outlined in the TTE Privacy Policy.<br><a href="https://www.tabletennisengland.co.uk/privacy-policy" target="_blank">TTE Privacy Policy</a><br>I understand that my information may be shared with the organiser's and event committee when necessary.</p>
           
           <div style="margin-top: 1em;" id="adult_consent_section">
-            <label for="adult_name">(Please state your name if you are the player aged 16 or over, otherwise state N/A).</label>
+            <label for="adult_name" class="required">(Please state your name if you are the player aged 16 or over, otherwise state N/A).</label>
             <input type="text" id="adult_name" name="adult_name" placeholder="Your name or N/A" required>
           </div>
           <p>Parent/guardian consent for minors:<br>I am the parent/guardian of the player entering the tournament, I have legal responsibility for the player and I consent to his/her participation in the competition.<br>
             I also consent to the use of his/her personal data by TTE for the administration of this event as outlined in the TTE Privacy Policy.<br><a href="https://www.tabletennisengland.co.uk/privacy-policy" target="_blank">TTE Privacy Policy</a></p>
 
             <div style="margin-top: 1em;" id="minor_consent_section">
-              <label for="guardian_name">(Please state your name and relationship to the player if the player is under 16, otherwise state N/A)</label>
+              <label for="guardian_name" class="required">(Please state your name and relationship to the player if the player is under 16, otherwise state N/A)</label>
               <input type="text" id="guardian_name" name="guardian_name" placeholder="Your name or N/A" required>
             </div>
             
             <p style="margin-top: 1.5em;">Parental/Guardian consent for Anti-Doping Testing<br>A player under the age of 18 may not participate in a Table Tennis England event or competition unless a parent or guardian has provided consent for anti-doping testing.<br>Anti-Doping Acknowledgment, I have legal responsibility for the player named above. I confirm that I have read the TTE Anti-Doping Regulations (Appendix P) and acknowledge that the player is bound by these Regulations.</p>
             
             <div style="margin-top: 1em;" id="antidoping_consent_section">
-              <label for="guardian_antidoping">To be completed only if the player is under 18:<br>Name and Relationship to player:</label>
+              <label for="guardian_antidoping" class="required">To be completed only if the player is under 18:<br>Name and Relationship to player:</label>
               <input type="text" id="guardian_antidoping" name="guardian_antidoping" placeholder="Name and relationship to player" required>
             </div>
             
@@ -192,13 +203,14 @@
       <div class="form-section">
         <h1>Section 6</h1>
         <p><strong>Tournament Questions part 3</strong></p>
+        <p class="required-note"><strong>Note:</strong> Fields marked with a red asterisk (<span style="color: red; font-weight: bold;">*</span>) are required.</p>
 
-        <label style="display:block; margin-top: 1.5em;">
+        <label style="display:block; margin-top: 1.5em;" class="required">
           <input type="checkbox" name="undertaking_agree" required>
           <strong>I agree</strong>: to observe the regulations of the tournament, to abide by the decisions of the referee, and to fulfil the schedule of play arranged for me unless prevented from doing so by circumstances beyond my control and accepted as such by the referee.
         </label>
 
-        <label style="margin-top: 1.5em;">
+        <label style="margin-top: 1.5em;" class="required">
           <input type="checkbox" name="consent" required>
           I consent to the use by TTE of my personal data in the administration of this competition.
         </label>
@@ -211,7 +223,7 @@
         
         <p style="margin-top: 1em;">PLEASE make sure you press the SUBMIT button when you have finished.</p>
         
-        <label style="display:block; margin-top: 1.5em;">
+        <label style="display:block; margin-top: 1.5em;" class="required">
           <input type="checkbox" name="final_agreement" required>
           <strong>I have read and agree to all the Tournament Regulations and conditions in this form.</strong>
         </label>
@@ -407,6 +419,8 @@
       }
     });
   </script>
+  <!-- Google Apps Script integration -->
+  <script src="form-script.js"></script>
 </body>
 </html>
 
