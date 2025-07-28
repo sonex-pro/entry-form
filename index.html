@@ -141,8 +141,8 @@
         <label for="county">County of affiliation</label>
         <input type="text" id="county" name="county" placeholder="e.g. your county name or N/A" required>
 
-        <label for="dob">Date of Birth</label>
-        <input type="date" id="dob" name="dob" required>
+        <label for="dob">Date of Birth (DD/MM/YYYY)</label>
+        <input type="text" id="dob" name="dob" placeholder="e.g. dd/mm/yyyy" required>
 
         <label for="disability">Disability / Accessibility / Health Issues</label>
         <input type="text" id="disability" name="disability" placeholder="Optional">
@@ -322,6 +322,34 @@
                 input.focus();
               }, 0);
               return false;
+            }
+            
+            // Special validation for email field
+            if (input.id === 'email') {
+              const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+              if (!emailPattern.test(input.value)) {
+                alert('Please enter a valid email address (e.g. name@example.com)');
+                setTimeout(function() {
+                  resetSections();
+                  sections[3].classList.add('active');
+                  input.focus();
+                }, 0);
+                return false;
+              }
+            }
+            
+            // Special validation for date of birth field
+            if (input.id === 'dob') {
+              const dobPattern = /^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$/;
+              if (!dobPattern.test(input.value)) {
+                alert('Please enter a valid date of birth in DD/MM/YYYY format');
+                setTimeout(function() {
+                  resetSections();
+                  sections[3].classList.add('active');
+                  input.focus();
+                }, 0);
+                return false;
+              }
             }
           }
         }
