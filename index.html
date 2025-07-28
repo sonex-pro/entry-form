@@ -254,68 +254,62 @@
     }
   </script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       const sections = document.querySelectorAll('.form-section');
-      let currentSectionIndex = 0;
+      let currentSection = 0;
 
-      const nextBtns = document.querySelectorAll('.next-btn');
-      const backBtns = document.querySelectorAll('.back-btn');
+      const nextButtons = document.querySelectorAll('.next-btn');
+      const backButtons = document.querySelectorAll('.back-btn');
 
-      function showSection(index) {
-        sections.forEach((section, i) => {
-          section.classList.toggle('active', i === index);
-        });
-        currentSectionIndex = index;
-      }
-
-      nextBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-          if (currentSectionIndex === 3) { // Section 4 -> Section 5
-            if (!validateSection4()) return;
-          }
-          if (currentSectionIndex === 4) { // Section 5 -> Section 6
-            if (!validateSection5()) return;
-          }
-          if (currentSectionIndex < sections.length - 1) {
-            showSection(currentSectionIndex + 1);
+      nextButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          if (validateSection(currentSection)) {
+            goToSection(currentSection + 1);
           }
         });
       });
 
-      backBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-          if (currentSectionIndex > 0) {
-            showSection(currentSectionIndex - 1);
-          }
+      backButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          goToSection(currentSection - 1);
         });
       });
 
-      function validateSection4() {
-        const requiredFields = ['name', 'phone', 'email', 'tte', 'other', 'club', 'county', 'dob'];
-        for (const id of requiredFields) {
-          const field = document.getElementById(id);
-          if (field && !field.value.trim()) {
-            alert('Please complete all required fields in Section 4.');
-            field.focus();
-            return false;
-          }
-        }
-        return true;
+      function goToSection(index) {
+        if (index < 0 || index >= sections.length) return;
+        sections[currentSection].classList.remove('active');
+        sections[index].classList.add('active');
+        currentSection = index;
       }
 
-      function validateSection5() {
-        const requiredFields = ['adult_name', 'guardian_name', 'guardian_antidoping'];
-        for (const id of requiredFields) {
-          const field = document.getElementById(id);
-          if (field && !field.value.trim()) {
-            alert('Please complete all required fields in Section 5.');
-            field.focus();
-            return false;
+      function validateSection(index) {
+        // Section 4 validation (index starts from 0)
+        if (index === 3) {
+          const requiredInputs = sections[index].querySelectorAll('input[required]');
+          for (let input of requiredInputs) {
+            if (!input.value.trim()) {
+              alert('Please complete all required fields in section 4.');
+              input.focus();
+              return false;
+            }
           }
         }
+
+        // Section 5 validation
+        if (index === 4) {
+          const requiredInputs = sections[index].querySelectorAll('input[required]');
+          for (let input of requiredInputs) {
+            if (!input.value.trim()) {
+              alert('Please complete all required fields in section 5.');
+              input.focus();
+              return false;
+            }
+          }
+        }
+
+        // Add more validations if needed
         return true;
       }
-
     });
   </script>
 </body>
