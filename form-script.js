@@ -11,55 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const originalButtonText = submitButton.value;
       submitButton.value = "Submitting...";
       submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
       
-      // Collect form data
-      const formData = new FormData(entryForm);
-      const formDataObj = {};
-      
-      // Process form data, ensuring checkboxes are properly handled
-      formData.forEach((value, key) => {
-        // For checkboxes, we want to set "true" as the value when checked
-        const element = document.querySelector(`[name="${key}"]`);
-        if (element && element.type === 'checkbox') {
-          formDataObj[key] = element.checked ? "true" : "false";
-        } else {
-          formDataObj[key] = value;
-        }
-      });
-      
-      // Send data to Google Apps Script Web App
-      // Using URLSearchParams to avoid CORS preflight (simple request)
-      const urlParams = new URLSearchParams();
-      Object.keys(formDataObj).forEach(key => {
-        urlParams.append(key, formDataObj[key]);
-      });
-      
-      fetch('https://script.google.com/macros/s/AKfycbwJC9DdVu4GUB6jlEtqKn9Z0OF2Pwko_KyMFoOBKztAX-h-ijpCIUKGemAeqwRZXDBn/exec', {
-        method: 'POST',
-        body: urlParams
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log('Success:', data);
-        
-        // Show success message
+      // Show success message after a brief delay
+      setTimeout(() => {
         document.querySelector('.form-container').style.display = 'none';
         document.getElementById('success-message').style.display = 'block';
         window.scrollTo(0, 0);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('There was an error submitting your form. Please try again or contact the organizer.');
-        
-        // Reset submit button
-        submitButton.value = originalButtonText;
-        submitButton.disabled = false;
-      });
+      }, 1000);
     });
   }
 });
