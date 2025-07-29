@@ -28,12 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       
       // Send data to Google Apps Script Web App
-      fetch('https://script.google.com/macros/s/AKfycbyWIKfD7PkqZRfSAdubZVGk4uAMEWMFwuji88SDKGTGiJHaQ6SZgvq7XZ0Y5Z6EIJ5p/exec', {
+      // Using URLSearchParams to avoid CORS preflight (simple request)
+      const urlParams = new URLSearchParams();
+      Object.keys(formDataObj).forEach(key => {
+        urlParams.append(key, formDataObj[key]);
+      });
+      
+      fetch('https://script.google.com/macros/s/AKfycbzT9K2QDJio_bGfQaxlPySJ0veIs_btohh95gJ4Ai78LIaYp-yDJGvBeQrT0jWn-IFa/exec', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formDataObj),
+        body: urlParams
       })
       .then(response => {
         if (!response.ok) {
