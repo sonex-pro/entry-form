@@ -2,13 +2,25 @@
 
 // Handle preflight OPTIONS requests for CORS
 function doOptions(e) {
-  return ContentService.createTextOutput()
-    .setMimeType(ContentService.MimeType.TEXT)
-    .setHeaders({
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type'
-    });
+  var headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+  };
+  
+  return ContentService.createTextOutput(JSON.stringify({"status":"success", "data": "Options handled"}))
+    .setMimeType(ContentService.MimeType.JSON)
+    .setHeaders(headers);
+}
+
+// Set CORS headers for all responses
+function setCorsHeaders(response) {
+  response.setHeaders({
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+  });
+  return response;
 }
 
 function doPost(e) {
@@ -44,29 +56,23 @@ function doPost(e) {
     sheet.appendRow(rowData);
     
     // Return success response with CORS headers
-    return ContentService.createTextOutput(JSON.stringify({
+    var response = ContentService.createTextOutput(JSON.stringify({
       result: "success",
       message: "Data successfully recorded"
     }))
-    .setMimeType(ContentService.MimeType.JSON)
-    .setHeaders({
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type'
-    });
+    .setMimeType(ContentService.MimeType.JSON);
+    
+    return setCorsHeaders(response);
     
   } catch (error) {
     // Return error response with CORS headers
-    return ContentService.createTextOutput(JSON.stringify({
+    var response = ContentService.createTextOutput(JSON.stringify({
       result: "error",
       message: error.toString()
     }))
-    .setMimeType(ContentService.MimeType.JSON)
-    .setHeaders({
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type'
-    });
+    .setMimeType(ContentService.MimeType.JSON);
+    
+    return setCorsHeaders(response);
   }
 }
 
