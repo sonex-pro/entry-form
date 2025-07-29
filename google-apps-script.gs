@@ -86,9 +86,10 @@ function doPost(e) {
 }
 
 function setCorsHeaders(response) {
+  // Allow your GitHub Pages domain explicitly
   response.appendHeader('Access-Control-Allow-Origin', 'https://sonex-pro.github.io');
   response.appendHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
-  response.appendHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  response.appendHeader('Access-Control-Allow-Headers', 'Content-Type');
   response.appendHeader('Access-Control-Max-Age', '3600');
   return response;
 }
