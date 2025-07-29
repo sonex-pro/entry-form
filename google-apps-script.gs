@@ -3,7 +3,7 @@ function doOptions(e) {
     JSON.stringify({ status: "success", data: "Options handled" })
   ).setMimeType(ContentService.MimeType.JSON);
   
-  response.appendHeader('Access-Control-Allow-Origin', '*');
+  response.appendHeader('Access-Control-Allow-Origin', 'https://sonex-pro.github.io');
   response.appendHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
   response.appendHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   
@@ -76,7 +76,7 @@ function doPost(e) {
 }
 
 function setCorsHeaders(response) {
-  response.appendHeader('Access-Control-Allow-Origin', '*');
+  response.appendHeader('Access-Control-Allow-Origin', 'https://sonex-pro.github.io');
   response.appendHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
   response.appendHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   return response;
