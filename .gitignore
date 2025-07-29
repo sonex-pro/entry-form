@@ -4,9 +4,6 @@ config.js
 # Ignore environment variables
 .env
 
-# Ignore form-script.js as it contains the Google Apps Script URL
-form-script.js
-
 # Ignore node modules if you're using npm
 node_modules/
 
