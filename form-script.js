@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         urlParams.append(key, formDataObj[key]);
       });
       
-      fetch('https://script.google.com/macros/s/AKfycbz2wBGXVkEcBrJyZ9Kta1i5QGFnslb5ELPOiwqyLoVcLpcCWmUKA-u43oxezQk7WZYK/exec', {
+      fetch('https://script.google.com/macros/s/AKfycbwLuasa0Y6EnNM_lyPQ8geURtX636P4LMNKhehH2GzAdfVYerogdR1a4ktRZJQ2C2ih/exec', {
         method: 'POST',
         body: urlParams
       })

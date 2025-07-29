@@ -6,8 +6,18 @@ function doOptions(e) {
   response.appendHeader('Access-Control-Allow-Origin', 'https://sonex-pro.github.io');
   response.appendHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
   response.appendHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  response.appendHeader('Access-Control-Max-Age', '3600');
   
   return response;
+}
+
+// Adding explicit doGet function for testing CORS
+function doGet(e) {
+  var response = ContentService.createTextOutput(
+    JSON.stringify({ status: "success", data: "GET handled", params: e.parameter })
+  ).setMimeType(ContentService.MimeType.JSON);
+  
+  return setCorsHeaders(response);
 }
 
 function doPost(e) {
@@ -79,6 +89,7 @@ function setCorsHeaders(response) {
   response.appendHeader('Access-Control-Allow-Origin', 'https://sonex-pro.github.io');
   response.appendHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
   response.appendHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  response.appendHeader('Access-Control-Max-Age', '3600');
   return response;
 }
 
