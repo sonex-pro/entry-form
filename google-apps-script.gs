@@ -39,7 +39,16 @@ function doPost(e) {
     Logger.log('Current headers: %s', JSON.stringify(headers));
     
     if (headers.length === 0 || (headers.length === 1 && headers[0] === "")) {
-      const newHeaders = Object.keys(data);
+      // Define specific column order: name first, email second, then other fields
+      const newHeaders = ['name', 'email'];
+      
+      // Add any other fields that aren't name or email
+      Object.keys(data).forEach(key => {
+        if (key !== 'name' && key !== 'email' && !newHeaders.includes(key)) {
+          newHeaders.push(key);
+        }
+      });
+      
       newHeaders.push("timestamp");
       Logger.log('Creating new headers: %s', JSON.stringify(newHeaders));
       sheet.getRange(1, 1, 1, newHeaders.length).setValues([newHeaders]);
