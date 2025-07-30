@@ -56,34 +56,142 @@ function doPost(e) {
     sheet.appendRow(rowData);
     Logger.log('Data successfully appended to sheet');
     
-    var response = ContentService.createTextOutput(
-      JSON.stringify({ 
-        result: "success", 
-        message: "Data successfully recorded",
-        debug: {
-          receivedKeys: Object.keys(data),
-          rowCount: sheet.getLastRow(),
-          timestamp: new Date().toISOString()
-        }
-      })
-    ).setMimeType(ContentService.MimeType.JSON);
+    // Create a user-friendly HTML success page
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Entry Submitted Successfully</title>
+        <style>
+          body { 
+            font-family: Arial, sans-serif; 
+            max-width: 600px; 
+            margin: 50px auto; 
+            padding: 20px; 
+            text-align: center;
+            background-color: #f5f5f5;
+          }
+          .success-container {
+            background-color: #4CAF50;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+          }
+          h1 { margin-top: 0; }
+          .details {
+            background-color: white;
+            color: #333;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: left;
+          }
+          .close-btn {
+            background-color: #45a049;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="success-container">
+          <h1>🏓 Entry Submitted Successfully!</h1>
+          <p><strong>Your entry for the BATTS Open 1-Star Tournament has been successfully submitted!</strong></p>
+          <p>To secure your place in the tournament, please complete the bank transfer as outlined in the tournament details.</p>
+          <p><strong>Thank you, and good luck!</strong></p>
+          
+          <div class="details">
+            <h3>Submission Details:</h3>
+            <p><strong>Entry Number:</strong> ${sheet.getLastRow() - 1}</p>
+            <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
+            <p><strong>Name:</strong> ${data.name || 'Not provided'}</p>
+            <p><strong>Email:</strong> ${data.email || 'Not provided'}</p>
+          </div>
+          
+          <button class="close-btn" onclick="window.close()">Close This Tab</button>
+        </div>
+      </body>
+      </html>
+    `;
+    
+    var response = HtmlService.createHtmlOutput(htmlContent)
+      .setTitle('Entry Submitted Successfully');
     
     return setCorsHeaders(response);
     
   } catch (error) {
     Logger.log('Error occurred: %s', error.toString());
     Logger.log('Error stack: %s', error.stack);
-    var response = ContentService.createTextOutput(
-      JSON.stringify({ 
-        result: "error", 
-        message: error.toString(),
-        stack: error.stack,
-        debug: {
-          receivedData: e.parameter ? Object.keys(e.parameter) : 'No parameter data',
-          timestamp: new Date().toISOString()
-        }
-      })
-    ).setMimeType(ContentService.MimeType.JSON);
+    // Create a user-friendly HTML error page
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Submission Error</title>
+        <style>
+          body { 
+            font-family: Arial, sans-serif; 
+            max-width: 600px; 
+            margin: 50px auto; 
+            padding: 20px; 
+            text-align: center;
+            background-color: #f5f5f5;
+          }
+          .error-container {
+            background-color: #f44336;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+          }
+          h1 { margin-top: 0; }
+          .contact-info {
+            background-color: white;
+            color: #333;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: left;
+          }
+          .close-btn {
+            background-color: #d32f2f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="error-container">
+          <h1>⚠️ Submission Error</h1>
+          <p><strong>Sorry, there was an error processing your tournament entry.</strong></p>
+          <p>Please try submitting again, or contact the organizer if the problem persists.</p>
+          
+          <div class="contact-info">
+            <h3>Contact Information:</h3>
+            <p><strong>Organizer:</strong> Carl Johnson (TTE Level 1 coach)</p>
+            <p><strong>Phone:</strong> 07469 844024</p>
+            <p><strong>Email:</strong> carl.johnson.batts@gmail.com</p>
+          </div>
+          
+          <button class="close-btn" onclick="window.close()">Close This Tab</button>
+        </div>
+      </body>
+      </html>
+    `;
+    
+    var response = HtmlService.createHtmlOutput(htmlContent)
+      .setTitle('Submission Error');
     
     return setCorsHeaders(response);
   }
