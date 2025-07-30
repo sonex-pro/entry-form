@@ -65,7 +65,7 @@ function doPost(e) {
         <style>
           body { 
             font-family: Arial, sans-serif; 
-            max-width: 600px; 
+            max-width: 90%; 
             margin: 50px auto; 
             padding: 20px; 
             text-align: center;
@@ -74,7 +74,7 @@ function doPost(e) {
           .success-container {
             background-color: #4CAF50;
             color: white;
-            padding: 30px;
+            padding: 40px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
           }
@@ -87,16 +87,7 @@ function doPost(e) {
             border-radius: 5px;
             text-align: left;
           }
-          .close-btn {
-            background-color: #45a049;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-            font-size: 16px;
-          }
+
         </style>
       </head>
       <body>
@@ -114,7 +105,6 @@ function doPost(e) {
             <p><strong>Email:</strong> ${data.email || 'Not provided'}</p>
           </div>
           
-          <button class="close-btn" onclick="window.close()">Close This Tab</button>
         </div>
       </body>
       </html>
@@ -137,7 +127,7 @@ function doPost(e) {
         <style>
           body { 
             font-family: Arial, sans-serif; 
-            max-width: 600px; 
+            max-width: 90%; 
             margin: 50px auto; 
             padding: 20px; 
             text-align: center;
@@ -184,7 +174,6 @@ function doPost(e) {
             <p><strong>Email:</strong> carl.johnson.batts@gmail.com</p>
           </div>
           
-          <button class="close-btn" onclick="window.close()">Close This Tab</button>
         </div>
       </body>
       </html>
