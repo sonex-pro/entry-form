@@ -104,7 +104,7 @@ function doPost(e) {
           <h1>🏓 Entry Submitted Successfully!</h1>
           <p><strong>Your entry for the BATTS Open 1-Star Tournament has been successfully submitted!</strong></p>
           <p>To secure your place in the tournament, please complete the bank transfer to Batts Table Tennis Club.</p>
-          <p>Details can be found in the entry form</p>
+          <p>Bank details can be found in the entry form</p>
           <p><strong>Thank you, and good luck!</strong></p>
           
           <div class="details">
