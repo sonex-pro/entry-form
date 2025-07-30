@@ -31,7 +31,11 @@ function doPost(e) {
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const sheet = ss.getActiveSheet();
     
-    let headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    // Check if sheet has any data first
+    let headers = [];
+    if (sheet.getLastColumn() > 0) {
+      headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    }
     Logger.log('Current headers: %s', JSON.stringify(headers));
     
     if (headers.length === 0 || (headers.length === 1 && headers[0] === "")) {
@@ -86,11 +90,9 @@ function doPost(e) {
 }
 
 function setCorsHeaders(response) {
-  // Allow your GitHub Pages domain explicitly
-  response.setHeader('Access-Control-Allow-Origin', 'https://sonex-pro.github.io');
-  response.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
-  response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  response.setHeader('Access-Control-Max-Age', '3600');
+  // For ContentService.createTextOutput(), we don't need to set CORS headers
+  // as they're not needed for direct form submissions
+  // Just return the response as-is
   return response;
 }
 
