@@ -77,7 +77,7 @@
           <p>The tournament runs all day (approx. 9:15am to 5:30pm), players must be available for morning and afternoon sessions, venue opens at 8:00am for registration & practice (play starts 9:15am).</p>
           <p>Under 18s must be accompanied by an adult, the draw will be made on 31st October but not published in advance.</p>
           <p>The tournament is included in the computer Ranking Scheme players will be ranked based on the latest computer ranking list, there are no restrictions on gender or age.</p>
-          <p>If you believe the tournament's gender policy discriminates against you for any reason, please contact the tournament organizer at <a href="mailto:carl.johnson.batts@gmail.com">carl.johnson.batts@gmail.com</a>.</p>
+          <p>If you believe the tournament's gender policy discriminates against you for any reason, please contact the tournament organiser at <a href="mailto:carl.johnson.batts@gmail.com">carl.johnson.batts@gmail.com</a>.</p>
           <p>New to tournaments? Visit <a href="https://tabletennisengland.co.uk/play/compete/" target="_blank">Table Tennis England Start Competing</a>.</p>
         </div>
         <div class="buttons">
@@ -225,18 +225,18 @@
           <p><strong>Gender Selection <span style="color: red; font-weight: bold;">*</span></strong></p>
           <p>Please select one of the following options:</p>
           
-          <label style="display: block; margin-top: 1em;" class="required">
-            <input type="checkbox" name="gender" value="male" required>
+          <label style="display: block; margin-top: 1em;">
+            <input type="checkbox" name="gender" value="male">
             I am a male entering the Men's Open
           </label>
           
-          <label style="display: block; margin-top: 1em;" class="required">
-            <input type="checkbox" name="gender" value="female" required>
+          <label style="display: block; margin-top: 1em;">
+            <input type="checkbox" name="gender" value="female">
             I am a female entering the Women's Open
           </label>
           
-          <label style="display: block; margin-top: 1em;" class="required">
-            <input type="checkbox" name="gender" value="other" required>
+          <label style="display: block; margin-top: 1em;">
+            <input type="checkbox" name="gender" value="other">
             None of the above apply to me
           </label>
         </div>
@@ -433,9 +433,34 @@
 
         // Section 6 validation if needed
         if (index === 5) {
+          // Check gender selection first
+          const genderCheckboxes = sections[index].querySelectorAll('input[name="gender"]');
+          const selectedGender = Array.from(genderCheckboxes).find(cb => cb.checked);
+          
+          if (!selectedGender) {
+            alert('Please select one gender option.');
+            // Force reset of all sections and show only the current one
+            setTimeout(function() {
+              resetSections();
+              sections[5].classList.add('active');
+              genderCheckboxes[0].focus();
+            }, 0);
+            return false;
+          }
+          
+          // Check other required inputs
           const requiredInputs = sections[index].querySelectorAll('input[required]');
           for (let input of requiredInputs) {
-            if (!input.value.trim()) {
+            if (input.type === 'checkbox' && !input.checked) {
+              alert('Please complete all required fields in section 6.');
+              // Force reset of all sections and show only the current one
+              setTimeout(function() {
+                resetSections();
+                sections[5].classList.add('active');
+                input.focus();
+              }, 0);
+              return false;
+            } else if (input.type !== 'checkbox' && !input.value.trim()) {
               alert('Please complete all required fields in section 6.');
               // Force reset of all sections and show only the current one
               setTimeout(function() {
