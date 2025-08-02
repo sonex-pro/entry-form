@@ -220,6 +220,27 @@
         <p><strong>Tournament Questions part 3</strong></p>
         <p class="required-note"><strong>Note:</strong> Fields marked with a red asterisk (<span style="color: red; font-weight: bold;">*</span>) are required.</p>
 
+        <!-- Gender Selection -->
+        <div style="margin-top: 1.5em;">
+          <p><strong>Gender Selection <span style="color: red; font-weight: bold;">*</span></strong></p>
+          <p>Please select one of the following options:</p>
+          
+          <label style="display: block; margin-top: 1em;" class="required">
+            <input type="checkbox" name="gender" value="male" required>
+            I am a male entering the Men's Open
+          </label>
+          
+          <label style="display: block; margin-top: 1em;" class="required">
+            <input type="checkbox" name="gender" value="female" required>
+            I am a female entering the Women's Open
+          </label>
+          
+          <label style="display: block; margin-top: 1em;" class="required">
+            <input type="checkbox" name="gender" value="other" required>
+            None of the above apply to me
+          </label>
+        </div>
+
         <label style="display:block; margin-top: 1.5em;" class="required">
           <input type="checkbox" name="undertaking_agree" required>
           <strong>I agree</strong>: to observe the regulations of the tournament, to abide by the decisions of the referee, and to fulfil the schedule of play arranged for me unless prevented from doing so by circumstances beyond my control and accepted as such by the referee.
@@ -430,6 +451,24 @@
         // All validations passed
         return true;
       }
+    });
+
+    // Gender checkbox validation - only allow one selection
+    document.addEventListener('DOMContentLoaded', function() {
+      const genderCheckboxes = document.querySelectorAll('input[name="gender"]');
+      
+      genderCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+          if (this.checked) {
+            // Uncheck all other gender checkboxes
+            genderCheckboxes.forEach(otherCheckbox => {
+              if (otherCheckbox !== this) {
+                otherCheckbox.checked = false;
+              }
+            });
+          }
+        });
+      });
     });
   </script>
   <!-- Google Apps Script integration -->
