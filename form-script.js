@@ -4,6 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (entryForm) {
     entryForm.addEventListener('submit', function(event) {
+      // Validate gender selection before submission
+      const genderCheckboxes = document.querySelectorAll('input[name="gender"]');
+      const selectedGender = Array.from(genderCheckboxes).find(cb => cb.checked);
+      
+      if (!selectedGender) {
+        event.preventDefault();
+        alert('Please select one gender option before submitting.');
+        return false;
+      }
+      
       // Don't prevent default - let the form submit naturally to Google Apps Script
       
       // Show loading indicator
