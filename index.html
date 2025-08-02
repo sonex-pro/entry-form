@@ -13,18 +13,8 @@
   <meta name="theme-color" content="#ffffff">
   <style>
     .form-section {
-      display: none;
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      left: -9999px;
-    }
-    .form-section.active {
       display: block;
-      opacity: 1;
-      visibility: visible;
-      position: static;
-      left: auto;
+      margin-bottom: 30px;
     }
     .required:after {
       content: ' *';
@@ -81,9 +71,7 @@
           <p>If you believe the tournament's gender policy discriminates against you for any reason, please contact the tournament organiser at <a href="mailto:carl.johnson.batts@gmail.com">carl.johnson.batts@gmail.com</a></p>
           <p>New to tournaments? Visit <a href="https://tabletennisengland.co.uk/play/compete/" target="_blank">Table Tennis England Start Competing</a></p>
         </div>
-        <div class="buttons">
-          <button type="button" class="next-btn">Next</button>
-        </div>
+
         <!-- Design credit -->
         <div style="text-align: center; margin-top: 20px; padding: 10px; font-size: 12px; color: white; border-top: 1px solid rgba(255,255,255,0.2);">
           Designed by: <a href="mailto:carl.johnson.batts@gmail.com" style="color: white; text-decoration: none;">carl.johnson.batts@gmail.com</a>
@@ -114,10 +102,7 @@
           <li>13. No entry will be accepted after the draw has been made, subject to the discretion of the Referee, the draw will also be close to but not entirely in rank order.</li>
           <li>14. All entries and event details are subject to COVID-related restrictions, or protocols that Table Tennis England may deem necessary, venues used for events may impose COVID restrictions that go beyond government guidance.</li>
         </ul>
-        <div class="buttons">
-          <button type="button" class="back-btn">Back</button>
-          <button type="button" class="next-btn">Next</button>
-        </div>
+
       </div>
 
       <!-- Section 3: Tournament Regulations Continued -->
@@ -140,10 +125,7 @@
           <li>27. Completion and submission of this Entry Form signifies agreement by the entrant to the conditions of the competition, including any variations of ITTF regulations.</li>
           <li>28. The UK Anti-Doping Rules apply to all persons entering an event or competition, for whichever is the longer of a) the length of their membership or licence period; or b, 12 months from the date of their participation, whether or not the entrant or licence holder is a citizen of, or resident in, the UK.</li>
         </ul>
-        <div class="buttons">
-          <button type="button" class="back-btn">Back</button>
-          <button type="button" class="next-btn">Next</button>
-        </div>
+
       </div>
 
       <!-- Section 4: Tournament Questions part 1 -->
@@ -178,10 +160,7 @@
         <label for="disability">Disability / Accessibility / Health Issues</label>
         <input type="text" id="disability" name="disability" placeholder="Optional">
 
-        <div class="buttons">
-          <button type="button" class="back-btn">Back</button>
-          <button type="button" class="next-btn">Next</button>
-        </div>
+
       </div>
 
       <!-- Section 5: Tournament Questions part 2 -->
@@ -215,10 +194,7 @@
 
         </div>
 
-        <div class="buttons">
-          <button type="button" class="back-btn">Back</button>
-          <button type="button" class="next-btn">Next</button>
-        </div>
+
       </div>
       <!-- Section 6: Tournament Questions part 3 -->
       <div class="form-section">
@@ -270,10 +246,7 @@
           <strong>I have read and agree to all the Tournament Regulations and conditions in this form.</strong>
         </label>
         
-        <div class="buttons" style="margin-top: 1.5em;">
-          <button type="button" class="back-btn">Back</button>
-          <input type="submit" value="Submit Entry">
-        </div>
+        <input type="submit" value="Submit Entry">
         <!-- Design credit -->
         <div style="text-align: center; margin-top: 20px; padding: 10px; font-size: 12px; color: white; border-top: 1px solid rgba(255,255,255,0.2);">
           Designed by: <a href="mailto:carl.johnson.batts@gmail.com" style="color: white; text-decoration: none;">carl.johnson.batts@gmail.com</a>
@@ -282,228 +255,7 @@
     </form>
   </div>
 
-  <script>
-    // Updated to handle 6 sections instead of 8
-    const sections = document.querySelectorAll('.form-section');
-    const nextBtns = document.querySelectorAll('.next-btn');
-    const backBtns = document.querySelectorAll('.back-btn');
-    let currentSection = 0;
 
-    nextBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (currentSection < sections.length - 1) {
-          sections[currentSection].classList.remove('active');
-          currentSection++;
-          sections[currentSection].classList.add('active');
-          window.scrollTo(0, 0);
-        }
-      });
-    });
-
-    backBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (currentSection > 0) {
-          sections[currentSection].classList.remove('active');
-          currentSection--;
-          sections[currentSection].classList.add('active');
-          window.scrollTo(0, 0);
-        }
-      });
-    });
-    
-
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const sections = document.querySelectorAll('.form-section');
-      let currentSection = 0;
-
-      // Initialize - make sure only the first section is visible at start
-      resetSections();
-      sections[0].classList.add('active');
-
-      const nextButtons = document.querySelectorAll('.next-btn');
-      const backButtons = document.querySelectorAll('.back-btn');
-
-      nextButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-          if (validateSection(currentSection)) {
-            goToSection(currentSection + 1);
-          }
-        });
-      });
-
-      backButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-          goToSection(currentSection - 1);
-        });
-      });
-
-      // Helper function to reset all sections to non-active state
-      function resetSections() {
-        sections.forEach(section => {
-          section.classList.remove('active');
-        });
-      }
-
-      function goToSection(index) {
-        if (index < 0 || index >= sections.length) return;
-        
-        // Reset all sections to ensure only one is visible
-        resetSections();
-        
-        // Make the target section active
-        sections[index].classList.add('active');
-        currentSection = index;
-        
-        // Scroll to top of section for better user experience
-        window.scrollTo(0, sections[index].offsetTop - 20);
-      }
-
-      function validateSection(index) {
-        // Section 4 validation (index starts from 0)
-        if (index === 3) {
-          const requiredInputs = sections[index].querySelectorAll('input[required]');
-          for (let input of requiredInputs) {
-            if (!input.value.trim()) {
-              alert('Please complete all required fields in section 4.');
-              // Force reset of all sections and show only the current one
-              setTimeout(function() {
-                resetSections();
-                sections[3].classList.add('active');
-                input.focus();
-              }, 0);
-              return false;
-            }
-            
-            // Special validation for email field
-            if (input.id === 'email') {
-              const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-              if (!emailPattern.test(input.value)) {
-                alert('Please enter a valid email address (e.g. name@example.com)');
-                setTimeout(function() {
-                  resetSections();
-                  sections[3].classList.add('active');
-                  input.focus();
-                }, 0);
-                return false;
-              }
-            }
-            
-            // Special validation for phone field
-            if (input.id === 'phone') {
-              const phonePattern = /^[0-9]{11}$/;
-              if (!phonePattern.test(input.value)) {
-                alert('Please enter exactly 11 digits for your phone number with no spaces or special characters');
-                setTimeout(function() {
-                  resetSections();
-                  sections[3].classList.add('active');
-                  input.focus();
-                }, 0);
-                return false;
-              }
-            }
-            
-            // Special validation for date of birth field
-            if (input.id === 'dob') {
-              const dobPattern = /^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$/;
-              if (!dobPattern.test(input.value)) {
-                alert('Please enter a valid date of birth in DD/MM/YYYY format');
-                setTimeout(function() {
-                  resetSections();
-                  sections[3].classList.add('active');
-                  input.focus();
-                }, 0);
-                return false;
-              }
-            }
-          }
-        }
-
-        // Section 5 validation
-        if (index === 4) {
-          const requiredInputs = sections[index].querySelectorAll('input[required]');
-          for (let input of requiredInputs) {
-            if (!input.value.trim()) {
-              alert('Please complete all required fields in section 5.');
-              // Force reset of all sections and show only the current one
-              setTimeout(function() {
-                resetSections();
-                sections[4].classList.add('active');
-                input.focus();
-              }, 0);
-              return false;
-            }
-          }
-        }
-
-        // Section 6 validation if needed
-        if (index === 5) {
-          // Check gender selection first
-          const genderCheckboxes = sections[index].querySelectorAll('input[name="gender"]');
-          const selectedGender = Array.from(genderCheckboxes).find(cb => cb.checked);
-          
-          if (!selectedGender) {
-            alert('Please select one gender option.');
-            // Force reset of all sections and show only the current one
-            setTimeout(function() {
-              resetSections();
-              sections[5].classList.add('active');
-              genderCheckboxes[0].focus();
-            }, 0);
-            return false;
-          }
-          
-          // Check other required inputs
-          const requiredInputs = sections[index].querySelectorAll('input[required]');
-          for (let input of requiredInputs) {
-            if (input.type === 'checkbox' && !input.checked) {
-              alert('Please complete all required fields in section 6.');
-              // Force reset of all sections and show only the current one
-              setTimeout(function() {
-                resetSections();
-                sections[5].classList.add('active');
-                input.focus();
-              }, 0);
-              return false;
-            } else if (input.type !== 'checkbox' && !input.value.trim()) {
-              alert('Please complete all required fields in section 6.');
-              // Force reset of all sections and show only the current one
-              setTimeout(function() {
-                resetSections();
-                sections[5].classList.add('active');
-                input.focus();
-              }, 0);
-              return false;
-            }
-          }
-        }
-
-        // All validations passed
-        return true;
-      }
-    });
-
-    // Gender checkbox validation - only allow one selection
-    document.addEventListener('DOMContentLoaded', function() {
-      const genderCheckboxes = document.querySelectorAll('input[name="gender"]');
-      
-      genderCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-          if (this.checked) {
-            // Uncheck all other gender checkboxes
-            genderCheckboxes.forEach(otherCheckbox => {
-              if (otherCheckbox !== this) {
-                otherCheckbox.checked = false;
-              }
-            });
-          }
-        });
-      });
-    });
-  </script>
-  <!-- Google Apps Script integration -->
-  <script src="form-script.js"></script>
 </body>
 </html>
 
