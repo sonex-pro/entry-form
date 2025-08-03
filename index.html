@@ -148,7 +148,7 @@
         <label for="disability">Disability / Accessibility / Health Issues</label>
         <input type="text" id="disability" name="disability" placeholder="Optional">
           
-        <input type="submit" value="Submit Entry">
+        <input type="submit" id="submitBtn" value="Submit Entry">
         <!-- Design credit -->
         <div style="text-align: center; margin-top: 20px; padding: 10px; font-size: 12px; color: white; border-bottom: 1px solid rgba(255,255,255,0.2);">
           Form designed by: <a href="mailto:carl.johnson.batts@gmail.com" style="color: white; text-decoration: none;">carl.johnson.batts@gmail.com</a>
@@ -158,6 +158,13 @@
   </div>
 
 
+  <script>
+    document.getElementById('entryForm').addEventListener('submit', function(event) {
+      // Disable the submit button
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').value = 'Submitting...';
+    });
+  </script>
 </body>
 </html>
 
