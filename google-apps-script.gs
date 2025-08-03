@@ -39,12 +39,12 @@ function doPost(e) {
     Logger.log('Current headers: %s', JSON.stringify(headers));
     
     if (headers.length === 0 || (headers.length === 1 && headers[0] === "")) {
-      // Define specific column order: name first, email second, gender third, then other fields
-      const newHeaders = ['name', 'email', 'gender'];
+      // Define specific column order: name first, email second, then other fields
+      const newHeaders = ['name', 'email'];
       
-      // Add any other fields that aren't name, email, or gender
+      // Add any other fields that aren't name or email
       Object.keys(data).forEach(key => {
-        if (key !== 'name' && key !== 'email' && key !== 'gender' && !newHeaders.includes(key)) {
+        if (key !== 'name' && key !== 'email' && !newHeaders.includes(key)) {
           newHeaders.push(key);
         }
       });
@@ -58,26 +58,14 @@ function doPost(e) {
     
     const rowData = headers.map(header => {
       if (header === "timestamp") return new Date().toISOString();
-      if (header === "gender") {
-        // Convert gender values to required format
-        const genderValue = data[header];
-        if (genderValue === "male") return "M";
-        if (genderValue === "female") return "F";
-        if (genderValue === "other") return "Flag";
-        return "";
-      }
+
       return data[header] || "";
     });
     
     Logger.log('Row data to append: %s', JSON.stringify(rowData));
     const newRow = sheet.appendRow(rowData);
     
-    // Apply red color to "Flag" entries in gender column
-    const genderColumnIndex = headers.indexOf('gender') + 1; // +1 because sheets are 1-indexed
-    if (genderColumnIndex > 0 && data.gender === "other") {
-      const lastRow = sheet.getLastRow();
-      sheet.getRange(lastRow, genderColumnIndex).setFontColor('#FF0000');
-    }
+
     Logger.log('Data successfully appended to sheet');
     
     // Create a user-friendly HTML success page
