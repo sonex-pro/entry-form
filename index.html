@@ -31,7 +31,7 @@
   <div id="success-message" style="display: none; background-color: #4CAF50; color: white; text-align: center; padding: 20px; margin: 20px auto; max-width: 800px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">Your entry has been successfully submitted! To secure your place in the Batts 1-Star tournament, please complete the bank transfer. Thank you, and good luck!</div>
   
   <div class="form-container">
-    <h1 style="color: #FFFFFF;">BATTS Senior 1-Star Tournament<br>Men's Open and Women's Open<br>Sunday 2nd November 2025<br>Sponsored by Bribar</h1>
+    <h1 style="color: #FFFFFF;">BATTS Senior Open 1-Star Tournament<br>Sunday 2nd November 2025<br>Sponsored by Bribar</h1>
 
     <form id="entryForm" action="https://script.google.com/macros/s/AKfycbxwU-hVzFkSwX8fErz0o7KBMwoCrL34YTzPQfzgekewbxOAVAw-3_gIIOnqZ1fwkNgQ_Q/exec" method="POST" target="_blank">
       <!-- Section 1: Info -->
@@ -116,10 +116,10 @@
 
       </div>
 
-      <!-- Section 3: Tournament Questions part 1 -->
+      <!-- Section 3: Tournament Questions -->
       <div class="form-section">
         <h1>Section 3</h1>
-        <p><strong>Tournament Questions part 1</strong></p>
+        <p><strong>Tournament Questions</strong></p>
         <p class="required-note"><strong>Note:</strong> Fields marked with a red asterisk (<span style="color: red; font-weight: bold;">*</span>) are required.</p>
         <label for="name" class="required">Name</label>
         <input type="text" id="name" name="name" placeholder="Your full name" required>
@@ -142,21 +142,15 @@
         <label for="county" class="required">County of affiliation</label>
         <input type="text" id="county" name="county" placeholder="e.g. your county name or N/A" required>
 
-        <label for="dob" class="required">Date of Birth (DD/MM/YYYY)</label>
-        <input type="text" id="dob" name="dob" placeholder="e.g. dd/mm/yyyy" required>
+        <label for="ranking" class="required">Current Computer Ranking</label>
+        <input type="text" id="ranking" name="ranking" placeholder="e.g. 1234 or Unranked" required>
+
+        <label for="dob" class="required">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
 
         <label for="disability">Disability / Accessibility / Health Issues</label>
         <input type="text" id="disability" name="disability" placeholder="Optional">
 
-
-      </div>
-
-      <!-- Section 4: Tournament Questions part 2 -->
-      <div class="form-section">
-        <h1>Section 4</h1>
-        <p><strong>Tournament Questions part 2</strong></p>
-        <p class="required-note"><strong>Note:</strong> Fields marked with a red asterisk (<span style="color: red; font-weight: bold;">*</span>) are required.</p>
-        
         <div style="margin-top: 1.5em;">
           <p>Adult data protection consent:<br>I consent to Table Tennis England (TTE) using my personal data for the administration of this competition, as outlined in the TTE Privacy Policy.<br><a href="https://www.tabletennisengland.co.uk/privacy-policy" target="_blank">TTE Privacy Policy</a><br>I understand that my information may be shared with the organiser's and event committee when necessary.</p>
           
@@ -178,23 +172,12 @@
               <label for="guardian_antidoping" class="required">To be completed only if the player is under 18:<br>Name and Relationship to player:</label>
               <input type="text" id="guardian_antidoping" name="guardian_antidoping" placeholder="Name and relationship to player" required>
             </div>
-            
-
         </div>
-
-
-      </div>
-      <!-- Section 5: Tournament Questions part 3 -->
-      <div class="form-section">
-        <h1>Section 5</h1>
-        <p><strong>Tournament Questions part 3</strong></p>
-        <p class="required-note"><strong>Note:</strong> Fields marked with a red asterisk (<span style="color: red; font-weight: bold;">*</span>) are required.</p>
 
         <!-- Gender Selection -->
         <div style="margin-top: 1.5em;">
           <p><strong>Gender Selection <span style="color: red; font-weight: bold;">*</span></strong></p>
           <p>Please select one of the following options:</p>
-          
           <label style="display: block; margin-top: 1em;">
             <input type="checkbox" name="gender" value="male">
             I am a male entering the Men's Open
