@@ -56,6 +56,63 @@ function doPost(e) {
       headers = newHeaders;
     }
     
+    // Check for duplicate email before adding new data
+    const emailToCheck = data.email;
+    if (emailToCheck) {
+      const emailColumnIndex = headers.indexOf('email');
+      if (emailColumnIndex !== -1 && sheet.getLastRow() > 1) {
+        // Get all existing emails (skip header row)
+        const existingEmails = sheet.getRange(2, emailColumnIndex + 1, sheet.getLastRow() - 1, 1).getValues();
+        const emailExists = existingEmails.some(row => row[0] && row[0].toString().toLowerCase() === emailToCheck.toLowerCase());
+        
+        if (emailExists) {
+          Logger.log('Duplicate email blocked: %s', emailToCheck);
+          
+          // Simple response to prevent refresh-based resubmissions
+          const htmlContent = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <title>Entry Already Submitted</title>
+              <style>
+                body { 
+                  font-family: Arial, sans-serif; 
+                  max-width: 600px; 
+                  margin: 50px auto; 
+                  padding: 20px; 
+                  text-align: center;
+                  background-color: #f5f5f5;
+                }
+                .info-container {
+                  background-color: #2196F3;
+                  color: white;
+                  padding: 30px 20px;
+                  border-radius: 10px;
+                  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                }
+                h1 { margin-top: 0; }
+                p { font-size: 16px; line-height: 1.5; }
+              </style>
+            </head>
+            <body>
+              <div class="info-container">
+                <h1>🏓 Entry Already Submitted</h1>
+                <p><strong>This email address has already been used for an entry.</strong></p>
+                <p>Your tournament entry is already in our system.</p>
+                <p>Please close this tab to avoid duplicate submissions.</p>
+              </div>
+            </body>
+            </html>
+          `;
+          
+          var response = HtmlService.createHtmlOutput(htmlContent)
+            .setTitle('Entry Already Submitted');
+          
+          return setCorsHeaders(response);
+        }
+      }
+    }
+    
     const rowData = headers.map(header => {
       if (header === "timestamp") return new Date().toISOString();
 
