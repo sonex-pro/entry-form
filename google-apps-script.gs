@@ -39,12 +39,12 @@ function doPost(e) {
     Logger.log('Current headers: %s', JSON.stringify(headers));
     
     if (headers.length === 0 || (headers.length === 1 && headers[0] === "")) {
-      // Define specific column order: name first, email second, gender third, then other fields
-      const newHeaders = ['name', 'email', 'gender'];
+      // Define specific column order: name, gender, tte number, club, county, email, phone, disability
+      const newHeaders = ['name', 'gender', 'tte number', 'club', 'county', 'email', 'phone', 'disability'];
       
-      // Add any other fields that aren't name, email, or gender
+      // Add any other fields that aren't in the predefined order
       Object.keys(data).forEach(key => {
-        if (key !== 'name' && key !== 'email' && key !== 'gender' && !newHeaders.includes(key)) {
+        if (!newHeaders.includes(key)) {
           newHeaders.push(key);
         }
       });

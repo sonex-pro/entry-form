@@ -33,7 +33,7 @@
   <div class="form-container">
     <h1 style="color: #FFFFFF;">BATTS Senior Open 1-Star Tournament<br>Sunday 2nd November 2025<br>Sponsored by Bribar</h1>
 
-    <form id="entryForm" action="https://script.google.com/macros/s/AKfycbyhGOaurLkl4rFh3ViMebG63jdMIFjQFgvruKx9u8rKRF-zvp0U2xMHhAj3jrMd0TVsvQ/exec" method="POST" target="_blank">
+    <form id="entryForm" action="https://script.google.com/macros/s/AKfycbx-VN1_EtvaustKIWOnVv1ldgD2jnpc9Im8dpET8NjPxiEiCFiJhWjlyapdDF2E27KD3w/exec" method="POST" target="_blank">
       <!-- Section 1: Info -->
       <div class="form-section active">
         <div class="info-text">
@@ -141,8 +141,8 @@
         <label for="county" class="required">County of affiliation</label>
         <input type="text" id="county" name="county" placeholder="e.g. your county name or N/A" required>
 
-        <label for="dob" class="required">Date of Birth dd/mm/yyyy</label>
-        <input type="text" id="dob" name="dob" placeholder="e.g. dd/mm/yyyy" required>
+        <label for="dob" class="required">Date of Birth dd-mm-yyyy</label>
+        <input type="text" id="dob" name="dob" placeholder="e.g. dd-mm-yyyy" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" title="Please enter date in DD-MM-YYYY format" required>
 
         <label for="disability">Disability / Accessibility / Health Issues</label>
         <input type="text" id="disability" name="disability" placeholder="Optional">
