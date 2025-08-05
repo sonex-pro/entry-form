@@ -135,7 +135,7 @@ function doPost(e) {
     if (genderColumnIndex !== -1 && data.gender === 'female') {
       const currentRow = sheet.getLastRow();
       const genderCell = sheet.getRange(currentRow, genderColumnIndex + 1);
-      genderCell.setFontColor('#800080'); // Purple color
+      genderCell.setFontColor('#ff0000'); // Red color
     }
 
     Logger.log('Data successfully appended to sheet');
@@ -290,6 +290,7 @@ function sendConfirmationEmail(data) {
       <div style="background-color: #4CAF50; color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
         <h1 style="margin: 0; font-size: 24px;">🏓 Entry Confirmed!</h1>
         <p style="margin: 10px 0 0 0; font-size: 18px;">BATTS Open 1-Star Tournament</p>
+        <p style="margin: 10px 0 0 0; font-size: 16px;">Sunday 2nd November 2025</p>
       </div>
       
       <div style="background-color: white; padding: 30px; border-radius: 0 0 10px 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
@@ -333,10 +334,10 @@ function sendConfirmationEmail(data) {
           <p style="margin: 5px 0;"><strong>Email:</strong> carl.johnson.batts@gmail.com</p>
         </div>
         
-        <p style="font-size: 16px; color: #333; line-height: 1.6;">Good luck with your preparation, and we look forward to seeing you at the tournament!</p>
+        <p style="font-size: 16px; color: #333; line-height: 1.6;">Good luck with your preparation, and I look forward to seeing you at the tournament!</p>
         
         <p style="font-size: 16px; color: #333; margin-top: 30px;">Best regards,<br>
-        <strong>Carl</strong></p>
+        <strong style="font-family: Georgia, serif;">Carl</strong></p>
       </div>
     </div>
   `;

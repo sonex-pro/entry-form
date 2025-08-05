@@ -33,7 +33,7 @@
   <div class="form-container">
     <h1 style="color: #FFFFFF;">BATTS Senior Open 1-Star Tournament<br>Sunday 2nd November 2025<br>Sponsored by Bribar</h1>
 
-    <form id="entryForm" action="https://script.google.com/macros/s/AKfycbzWotcBV4EIMsZHd0V0nWldG2W-VyM5pCERlFBMgzo3RBX0uhmmnNlDCdwpGwWui0BZVQ/exec" method="POST" target="_blank">
+    <form id="entryForm" action="https://script.google.com/macros/s/AKfycbyhGOaurLkl4rFh3ViMebG63jdMIFjQFgvruKx9u8rKRF-zvp0U2xMHhAj3jrMd0TVsvQ/exec" method="POST" target="_blank">
       <!-- Section 1: Info -->
       <div class="form-section active">
         <div class="info-text">
@@ -129,19 +129,6 @@
         <label for="email" class="required">Email Address</label>
         <input type="email" id="email" name="email" placeholder="e.g. your.email@example.com" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address (e.g. name@example.com)" required>
 
-        <div class="gender-section">
-          <label class="required">Gender Selection</label>
-          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ccc;">Note: There are currently two gender categories for regulated table tennis – male and female. A TTE player's gender is defined by their current membership category.</p>
-          <div style="margin-bottom: 20px;">
-            <label style="display: block; margin-bottom: 10px; font-weight: normal; cursor: pointer;">
-              <input type="checkbox" id="gender-male" name="gender" value="male" style="margin-right: 8px;"> I am a male entering the Men's Open
-            </label>
-            <label style="display: block; margin-bottom: 10px; font-weight: normal; cursor: pointer;">
-              <input type="checkbox" id="gender-female" name="gender" value="female" style="margin-right: 8px;"> I am a female entering the Women's Open
-            </label>
-          </div>
-        </div>
-
         <label for="tte" class="required">Table Tennis England Membership Number</label>
         <input type="text" id="tte" name="tte number" placeholder="e.g. 123456 or N/A" required>
 
@@ -159,6 +146,84 @@
 
         <label for="disability">Disability / Accessibility / Health Issues</label>
         <input type="text" id="disability" name="disability" placeholder="Optional">
+
+        <div class="undertaking-section">
+          <label class="required">Tournament Undertaking</label>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ff6b6b; font-weight: bold;">NO ENTRY WILL BE ACCEPTED UNLESS THE FOLLOWING UNDERTAKING IS SIGNED</p>
+          <p style="font-size: 14px; margin: 10px 0; color: #ccc; line-height: 1.4;">I undertake to observe the regulations of the tournament, to abide by the decisions of the referee and to fulfill the schedule of play arranged for me unless prevented from doing so by circumstances beyond my control and accepted as such by the Referee.</p>
+          <div style="margin-bottom: 20px;">
+            <label for="player-name-print" class="required">Print Player Name (block capitals)</label>
+            <input type="text" id="player-name-print" name="player-name-print" placeholder="ENTER YOUR NAME IN BLOCK CAPITALS" style="text-transform: uppercase; margin-bottom: 15px;" required>
+            <label for="undertaking-date" class="required">Date</label>
+            <input type="text" id="undertaking-date" name="undertaking-date" placeholder="DD-MM-YYYY" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" title="Please enter date in DD-MM-YYYY format" style="margin-bottom: 15px;" required>
+
+          </div>
+        </div>
+
+        <div class="data-protection-section">
+          <label class="required">TTE Data Protection Consent</label>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ccc; line-height: 1.4;">Table Tennis England require consent to the use of personal data in the administration of this competition, in accordance with the TTE Privacy Policy; the information will be shared where necessary with the organisers and event committee. For a player under 16 this consent must be given by a parent or guardian, who must also confirm agreement to the player's participation in the competition.</p>
+          <p style="font-size: 14px; margin: 10px 0; color: #ccc;">The TTE Privacy Policy is at <a href="https://www.tabletennisengland.co.uk/privacy-policy/" target="_blank" style="color: #f3e28c; text-decoration: underline;">https://www.tabletennisengland.co.uk/privacy-policy/</a></p>
+          <p style="font-size: 14px; margin: 15px 0 10px 0; color: #ff6b6b; font-weight: bold;">If player is 16 or over:</p>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ccc; line-height: 1.4;">Data Protection: I am the player named above and I consent to the use by TTE of my personal data in the administration of this competition.</p>
+          <div style="margin-bottom: 20px;">
+            <label for="data-protection-name" class="required">Print Name (block capitals)</label>
+            <input type="text" id="data-protection-name" name="data-protection-name" placeholder="ENTER YOUR NAME IN BLOCK CAPITALS" style="text-transform: uppercase; margin-bottom: 15px;" required>
+            <label for="data-protection-date" class="required">Date</label>
+            <input type="text" id="data-protection-date" name="data-protection-date" placeholder="DD-MM-YYYY" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" title="Please enter date in DD-MM-YYYY format" style="margin-bottom: 15px;" required>
+
+          </div>
+        </div>
+
+        <div class="guardian-consent-section">
+          <label class="required">Parent/Guardian Consent (If player is under 16)</label>
+          <p style="font-size: 14px; margin: 15px 0 10px 0; color: #ff6b6b; font-weight: bold;">Data Protection & Activity Consent:</p>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ccc; line-height: 1.4;">I have legal responsibility for the player named above and I consent to his/her participation in the competition, and to the use by TTE of his/her personal data in its administration.</p>
+          <div style="margin-bottom: 20px;">
+            <label for="guardian-name" class="required">Print Name (block capitals)</label>
+            <input type="text" id="guardian-name" name="guardian-name" placeholder="ENTER PARENT/GUARDIAN NAME IN BLOCK CAPITALS" style="text-transform: uppercase; margin-bottom: 15px;" required>
+            <label for="guardian-relation" class="required">Relation to player</label>
+            <input type="text" id="guardian-relation" name="guardian-relation" placeholder="e.g. Parent, Guardian" style="margin-bottom: 15px;" required>
+            <label for="guardian-date" class="required">Date</label>
+            <input type="text" id="guardian-date" name="guardian-date" placeholder="DD-MM-YYYY" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" title="Please enter date in DD-MM-YYYY format" style="margin-bottom: 15px;" required>
+
+          </div>
+        </div>
+
+        <div class="anti-doping-section">
+          <label class="required">UK Anti-Doping Acknowledgement (If player is under 18)</label>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ccc; line-height: 1.4;">The UK Anti-Doping Rules apply to all persons entering an event or competition, for whichever is the longer of a) the length of their membership or licence period; or b) 12 months from the date of their participation, whether or not the entrant or licence holder is a citizen of, or resident in, the UK</p>
+          <p style="font-size: 14px; margin: 10px 0 15px 0; color: #ccc; line-height: 1.4;">A player under 18 may not participate in a Table Tennis England event or competition unless a parent or guardian of that player has consented to testing of that player in the following form:</p>
+          <p style="font-size: 14px; margin: 15px 0 10px 0; color: #ff6b6b; font-weight: bold;">Anti-Doping Acknowledgement:</p>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ccc; line-height: 1.4;">I have legal responsibility for the player named above and I confirm that I have read the TTE Anti-Doping Regulations (Appendix P) and that I hereby acknowledge that the player is bound by these Regulations.</p>
+          <div style="margin-bottom: 20px;">
+            <label for="anti-doping-name" class="required">Print Name (block capitals)</label>
+            <input type="text" id="anti-doping-name" name="anti-doping-name" placeholder="ENTER PARENT/GUARDIAN NAME IN BLOCK CAPITALS" style="text-transform: uppercase; margin-bottom: 15px;" required>
+            <label for="anti-doping-relation" class="required">Relation to player</label>
+            <input type="text" id="anti-doping-relation" name="anti-doping-relation" placeholder="e.g. Parent, Guardian" style="margin-bottom: 15px;" required>
+            <label for="anti-doping-date" class="required">Date</label>
+            <input type="text" id="anti-doping-date" name="anti-doping-date" placeholder="DD-MM-YYYY" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" title="Please enter date in DD-MM-YYYY format" style="margin-bottom: 15px;" required>
+          </div>
+        </div>
+
+        <div class="gender-section">
+          <label class="required">Gender Selection</label>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ccc;">Note: There are currently two gender categories for regulated table tennis – male and female. A TTE player's gender is defined by their current membership category.</p>
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 10px; font-weight: normal; cursor: pointer;">
+              <input type="checkbox" id="gender-male" name="gender" value="male" style="margin-right: 8px;"> I am a male entering the Men's Open
+            </label>
+            <label style="display: block; margin-bottom: 10px; font-weight: normal; cursor: pointer;">
+              <input type="checkbox" id="gender-female" name="gender" value="female" style="margin-right: 8px;"> I am a female entering the Women's Open
+            </label>
+          </div>
+        </div>
+
+        <div style="background-color: rgba(76, 175, 80, 0.1); border: 2px solid #4CAF50; border-radius: 8px; padding: 15px; margin: 20px 0; text-align: center;">
+          <p style="font-size: 16px; margin: 5px 0; color: #4CAF50; font-weight: bold;">Ready to Submit?</p>
+          <p style="font-size: 14px; margin: 10px 0; color: #ccc; line-height: 1.4;">A copy of your responses will be emailed to the address that you provided. Submit will take a few seconds to complete.</p>
+          <p style="font-size: 14px; margin: 5px 0; color: #ccc;">Please ensure all information is correct before submitting.</p>
+        </div>
           
         <input type="submit" id="submitBtn" value="Submit Entry">
         <!-- Design credit -->
