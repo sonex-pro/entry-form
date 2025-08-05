@@ -39,8 +39,8 @@ function doPost(e) {
     Logger.log('Current headers: %s', JSON.stringify(headers));
     
     if (headers.length === 0 || (headers.length === 1 && headers[0] === "")) {
-      // Define specific column order: name, gender, tte number, club, county, email, phone, disability
-      const newHeaders = ['name', 'gender', 'tte number', 'club', 'county', 'email', 'phone', 'disability'];
+      // Define specific column order: name, gender, tte number, dob, club, county, email, phone, disability
+      const newHeaders = ['name', 'gender', 'tte number', 'dob', 'club', 'county', 'email', 'phone', 'disability'];
       
       // Add any other fields that aren't in the predefined order
       Object.keys(data).forEach(key => {
@@ -337,7 +337,7 @@ function sendConfirmationEmail(data) {
         <p style="font-size: 16px; color: #333; line-height: 1.6;">Good luck with your preparation, and I look forward to seeing you at the tournament!</p>
         
         <p style="font-size: 16px; color: #333; margin-top: 30px;">Best regards,<br>
-        <strong style="font-family: Georgia, serif;">Carl</strong></p>
+        <strong style="font-family: Georgia, serif; font-style: italic;">Carl</strong></p>
       </div>
     </div>
   `;
