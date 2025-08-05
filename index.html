@@ -33,7 +33,7 @@
   <div class="form-container">
     <h1 style="color: #FFFFFF;">BATTS Senior Open 1-Star Tournament<br>Sunday 2nd November 2025<br>Sponsored by Bribar</h1>
 
-    <form id="entryForm" action="https://script.google.com/macros/s/AKfycbxcxPzfI9Xea0IZLxLByyv5qkigzYmr-LKmJO1phHBNbNGWKoLHSNsK5eao7dH7FEGt4w/exec" method="POST" target="_blank">
+    <form id="entryForm" action="https://script.google.com/macros/s/AKfycbzWotcBV4EIMsZHd0V0nWldG2W-VyM5pCERlFBMgzo3RBX0uhmmnNlDCdwpGwWui0BZVQ/exec" method="POST" target="_blank">
       <!-- Section 1: Info -->
       <div class="form-section active">
         <div class="info-text">
@@ -129,6 +129,19 @@
         <label for="email" class="required">Email Address</label>
         <input type="email" id="email" name="email" placeholder="e.g. your.email@example.com" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address (e.g. name@example.com)" required>
 
+        <div class="gender-section">
+          <label class="required">Gender Selection</label>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ccc;">Note: There are currently two gender categories for regulated table tennis – male and female. A TTE player's gender is defined by their current membership category.</p>
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 10px; font-weight: normal; cursor: pointer;">
+              <input type="checkbox" id="gender-male" name="gender" value="male" style="margin-right: 8px;"> I am a male entering the Men's Open
+            </label>
+            <label style="display: block; margin-bottom: 10px; font-weight: normal; cursor: pointer;">
+              <input type="checkbox" id="gender-female" name="gender" value="female" style="margin-right: 8px;"> I am a female entering the Women's Open
+            </label>
+          </div>
+        </div>
+
         <label for="tte" class="required">Table Tennis England Membership Number</label>
         <input type="text" id="tte" name="tte number" placeholder="e.g. 123456 or N/A" required>
 
@@ -158,7 +171,34 @@
 
 
   <script>
+    // Gender checkbox validation - ensure exactly one is selected
+    const maleCheckbox = document.getElementById('gender-male');
+    const femaleCheckbox = document.getElementById('gender-female');
+    
+    // When male is checked, uncheck female
+    maleCheckbox.addEventListener('change', function() {
+      if (this.checked) {
+        femaleCheckbox.checked = false;
+      }
+    });
+    
+    // When female is checked, uncheck male
+    femaleCheckbox.addEventListener('change', function() {
+      if (this.checked) {
+        maleCheckbox.checked = false;
+      }
+    });
+    
     document.getElementById('entryForm').addEventListener('submit', function(event) {
+      // Check if exactly one gender is selected
+      const genderSelected = maleCheckbox.checked || femaleCheckbox.checked;
+      
+      if (!genderSelected) {
+        event.preventDefault();
+        alert('Please select your gender category (Male or Female).');
+        return false;
+      }
+      
       // Disable the submit button
       document.getElementById('submitBtn').disabled = true;
       document.getElementById('submitBtn').value = 'Submitting...';

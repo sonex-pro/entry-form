@@ -39,12 +39,12 @@ function doPost(e) {
     Logger.log('Current headers: %s', JSON.stringify(headers));
     
     if (headers.length === 0 || (headers.length === 1 && headers[0] === "")) {
-      // Define specific column order: name first, email second, then other fields
-      const newHeaders = ['name', 'email'];
+      // Define specific column order: name first, email second, gender third, then other fields
+      const newHeaders = ['name', 'email', 'gender'];
       
-      // Add any other fields that aren't name or email
+      // Add any other fields that aren't name, email, or gender
       Object.keys(data).forEach(key => {
-        if (key !== 'name' && key !== 'email' && !newHeaders.includes(key)) {
+        if (key !== 'name' && key !== 'email' && key !== 'gender' && !newHeaders.includes(key)) {
           newHeaders.push(key);
         }
       });
@@ -115,6 +115,14 @@ function doPost(e) {
     
     const rowData = headers.map(header => {
       if (header === "timestamp") return new Date().toISOString();
+      
+      // Convert gender values
+      if (header === "gender") {
+        const genderValue = data[header];
+        if (genderValue === "male") return "M";
+        if (genderValue === "female") return "F";
+        return genderValue || "";
+      }
 
       return data[header] || "";
     });
@@ -122,6 +130,13 @@ function doPost(e) {
     Logger.log('Row data to append: %s', JSON.stringify(rowData));
     const newRow = sheet.appendRow(rowData);
     
+    // Apply purple formatting to 'F' entries in gender column
+    const genderColumnIndex = headers.indexOf('gender');
+    if (genderColumnIndex !== -1 && data.gender === 'female') {
+      const currentRow = sheet.getLastRow();
+      const genderCell = sheet.getRange(currentRow, genderColumnIndex + 1);
+      genderCell.setFontColor('#800080'); // Purple color
+    }
 
     Logger.log('Data successfully appended to sheet');
     
@@ -287,8 +302,6 @@ function sendConfirmationEmail(data) {
           <p style="margin: 5px 0;"><strong>Name:</strong> ${data.name || 'Not provided'}</p>
           <p style="margin: 5px 0;"><strong>Email:</strong> ${data.email || 'Not provided'}</p>
           <p style="margin: 5px 0;"><strong>Phone:</strong> ${data.phone || 'Not provided'}</p>
-          <p style="margin: 5px 0;"><strong>TTE Number:</strong> ${data.tte_number || 'Not provided'}</p>
-          <p style="margin: 5px 0;"><strong>Club:</strong> ${data.club || 'Not provided'}</p>
           <p style="margin: 5px 0;"><strong>Submitted:</strong> ${new Date().toLocaleString('en-GB')}</p>
         </div>
         
@@ -296,25 +309,26 @@ function sendConfirmationEmail(data) {
           <h3 style="color: #856404; margin-top: 0;">💳 Important: Payment Required</h3>
           <p style="color: #856404; margin: 5px 0;">To secure your place in the tournament, please complete the bank transfer:</p>
           <p style="color: #856404; margin: 5px 0;"><strong>Account:</strong> Batts Table Tennis Club</p>
-          <p style="color: #856404; margin: 5px 0;"><strong>Sort Code:</strong> 20-45-45</p>
-          <p style="color: #856404; margin: 5px 0;"><strong>Account Number:</strong> 40735264</p>
+          <p style="color: #856404; margin: 5px 0;"><strong>Sort Code:</strong> 77-13-10</p>
+          <p style="color: #856404; margin: 5px 0;"><strong>Account Number:</strong> 23166968</p>
           <p style="color: #856404; margin: 5px 0;"><strong>Reference:</strong> Your name + "1Star"</p>
-          <p style="color: #856404; margin: 5px 0;"><strong>Amount:</strong> £15</p>
+          <p style="color: #856404; margin: 5px 0;"><strong>Amount:</strong> £35</p>
         </div>
         
         <div style="background-color: #e3f2fd; padding: 20px; border-radius: 5px; margin: 20px 0;">
           <h3 style="color: #1976d2; margin-top: 0;">📅 Tournament Information:</h3>
-          <p style="color: #1976d2; margin: 5px 0;"><strong>Date:</strong> Saturday 15th February 2025</p>
+          <p style="color: #1976d2; margin: 5px 0;"><strong>Date:</strong> Sunday 2nd November 2025</p>
           <p style="color: #1976d2; margin: 5px 0;"><strong>Venue:</strong> Batts Table Tennis Club</p>
-          <p style="color: #1976d2; margin: 5px 0;"><strong>Address:</strong> Old Town Hall, 213 Haverstock Hill, London NW3 4QP</p>
-          <p style="color: #1976d2; margin: 5px 0;"><strong>Registration:</strong> 9:00 AM</p>
-          <p style="color: #1976d2; margin: 5px 0;"><strong>Play Starts:</strong> 9:30 AM</p>
+          <p style="color: #1976d2; margin: 5px 0;"><strong>Address:</strong> Norman Booth Centre, Harlow, Essex. CM17 0EY</p>
+          <p style="color: #1976d2; margin: 5px 0;"><strong>Registration:</strong> 8:15 AM</p>
+          <p style="color: #1976d2; margin: 5px 0;"><strong>Play Starts:</strong> 9:15 AM</p>
+          <p style="color: #1976d2; margin: 5px 0;"><strong>We will only contact you if payment is not received</strong></p>
         </div>
         
         <p style="font-size: 16px; color: #333; line-height: 1.6;">If you have any questions or need to make changes to your entry, please contact the organizer:</p>
         
         <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;">
-          <p style="margin: 5px 0;"><strong>Organizer:</strong> Carl Johnson (TTE Level 1 Coach)</p>
+          <p style="margin: 5px 0;"><strong>Organizer:</strong> Carl Johnson</p>
           <p style="margin: 5px 0;"><strong>Phone:</strong> 07469 844024</p>
           <p style="margin: 5px 0;"><strong>Email:</strong> carl.johnson.batts@gmail.com</p>
         </div>
@@ -322,7 +336,7 @@ function sendConfirmationEmail(data) {
         <p style="font-size: 16px; color: #333; line-height: 1.6;">Good luck with your preparation, and we look forward to seeing you at the tournament!</p>
         
         <p style="font-size: 16px; color: #333; margin-top: 30px;">Best regards,<br>
-        <strong>BATTS Table Tennis Club</strong></p>
+        <strong>Carl</strong></p>
       </div>
     </div>
   `;
@@ -348,7 +362,7 @@ To secure your place, please complete the bank transfer to:
 - Reference: Your name + "1Star"
 - Amount: £35.00
 - Maximum 48 entries accepted in order of receipt and payment
-- we will only contact you if payment is not received.
+- We will only contact you if payment is not received.
 
 Tournament Information:
 - Date: Sunday 2nd November 2025
@@ -365,7 +379,7 @@ Contact Information:
 Good luck with your preparation!
 
 Best regards,
-BATTS Table Tennis Club
+Carl
   `;
   
   // Send the email
