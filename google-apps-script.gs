@@ -125,6 +125,17 @@ function doPost(e) {
 
     Logger.log('Data successfully appended to sheet');
     
+    // Send confirmation email if email is provided
+    if (data.email) {
+      try {
+        sendConfirmationEmail(data);
+        Logger.log('Confirmation email sent to: %s', data.email);
+      } catch (emailError) {
+        Logger.log('Failed to send confirmation email: %s', emailError.toString());
+        // Continue with success page even if email fails
+      }
+    }
+    
     // Create a user-friendly HTML success page
     const htmlContent = `
       <!DOCTYPE html>
@@ -163,13 +174,13 @@ function doPost(e) {
         <div class="success-container">
           <h1>🏓 Entry Submitted Successfully!</h1>
           <p><strong>Your entry for the BATTS Open 1-Star Tournament has been successfully submitted!</strong></p>
+          <p>📧 <strong>A confirmation email has been sent to your email address</strong> with all the tournament details and payment information.</p>
           <p>To secure your place in the tournament, please complete the bank transfer to Batts Table Tennis Club.</p>
           <p>Bank details can be found in the entry form</p>
           <p><strong>Thank you, and good luck!</strong></p>
           
           <div class="details">
             <h3>Submission Details:</h3>
-            <p><strong>Entry Number:</strong> ${sheet.getLastRow() - 1}</p>
             <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
             <p><strong>Name:</strong> ${data.name || 'Not provided'}</p>
             <p><strong>Email:</strong> ${data.email || 'Not provided'}</p>
@@ -254,6 +265,116 @@ function doPost(e) {
     
     return setCorsHeaders(response);
   }
+}
+
+function sendConfirmationEmail(data) {
+  const subject = '🏓 BATTS Open 1-Star Tournament - Entry Confirmation';
+  
+  const htmlBody = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f5f5f5; padding: 20px;">
+      <div style="background-color: #4CAF50; color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
+        <h1 style="margin: 0; font-size: 24px;">🏓 Entry Confirmed!</h1>
+        <p style="margin: 10px 0 0 0; font-size: 18px;">BATTS Open 1-Star Tournament</p>
+      </div>
+      
+      <div style="background-color: white; padding: 30px; border-radius: 0 0 10px 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <p style="font-size: 16px; color: #333; margin-bottom: 20px;">Dear ${data.name || 'Player'},</p>
+        
+        <p style="font-size: 16px; color: #333; line-height: 1.6;">Thank you for entering the <strong>BATTS Open 1-Star Tournament</strong>! Your entry has been successfully received and recorded.</p>
+        
+        <div style="background-color: #e8f5e8; padding: 20px; border-radius: 5px; margin: 20px 0;">
+          <h3 style="color: #2e7d32; margin-top: 0;">📋 Your Entry Details:</h3>
+          <p style="margin: 5px 0;"><strong>Name:</strong> ${data.name || 'Not provided'}</p>
+          <p style="margin: 5px 0;"><strong>Email:</strong> ${data.email || 'Not provided'}</p>
+          <p style="margin: 5px 0;"><strong>Phone:</strong> ${data.phone || 'Not provided'}</p>
+          <p style="margin: 5px 0;"><strong>TTE Number:</strong> ${data.tte_number || 'Not provided'}</p>
+          <p style="margin: 5px 0;"><strong>Club:</strong> ${data.club || 'Not provided'}</p>
+          <p style="margin: 5px 0;"><strong>Submitted:</strong> ${new Date().toLocaleString('en-GB')}</p>
+        </div>
+        
+        <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; padding: 20px; border-radius: 5px; margin: 20px 0;">
+          <h3 style="color: #856404; margin-top: 0;">💳 Important: Payment Required</h3>
+          <p style="color: #856404; margin: 5px 0;">To secure your place in the tournament, please complete the bank transfer:</p>
+          <p style="color: #856404; margin: 5px 0;"><strong>Account:</strong> Batts Table Tennis Club</p>
+          <p style="color: #856404; margin: 5px 0;"><strong>Sort Code:</strong> 20-45-45</p>
+          <p style="color: #856404; margin: 5px 0;"><strong>Account Number:</strong> 40735264</p>
+          <p style="color: #856404; margin: 5px 0;"><strong>Reference:</strong> Your name + "1Star"</p>
+          <p style="color: #856404; margin: 5px 0;"><strong>Amount:</strong> £15</p>
+        </div>
+        
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 5px; margin: 20px 0;">
+          <h3 style="color: #1976d2; margin-top: 0;">📅 Tournament Information:</h3>
+          <p style="color: #1976d2; margin: 5px 0;"><strong>Date:</strong> Saturday 15th February 2025</p>
+          <p style="color: #1976d2; margin: 5px 0;"><strong>Venue:</strong> Batts Table Tennis Club</p>
+          <p style="color: #1976d2; margin: 5px 0;"><strong>Address:</strong> Old Town Hall, 213 Haverstock Hill, London NW3 4QP</p>
+          <p style="color: #1976d2; margin: 5px 0;"><strong>Registration:</strong> 9:00 AM</p>
+          <p style="color: #1976d2; margin: 5px 0;"><strong>Play Starts:</strong> 9:30 AM</p>
+        </div>
+        
+        <p style="font-size: 16px; color: #333; line-height: 1.6;">If you have any questions or need to make changes to your entry, please contact the organizer:</p>
+        
+        <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;">
+          <p style="margin: 5px 0;"><strong>Organizer:</strong> Carl Johnson (TTE Level 1 Coach)</p>
+          <p style="margin: 5px 0;"><strong>Phone:</strong> 07469 844024</p>
+          <p style="margin: 5px 0;"><strong>Email:</strong> carl.johnson.batts@gmail.com</p>
+        </div>
+        
+        <p style="font-size: 16px; color: #333; line-height: 1.6;">Good luck with your preparation, and we look forward to seeing you at the tournament!</p>
+        
+        <p style="font-size: 16px; color: #333; margin-top: 30px;">Best regards,<br>
+        <strong>BATTS Table Tennis Club</strong></p>
+      </div>
+    </div>
+  `;
+  
+  const textBody = `
+BATS Open 1-Star Tournament - Entry Confirmation
+
+Dear ${data.name || 'Player'},
+
+Thank you for entering the BATTS Open 1-Star Tournament! Your entry has been successfully received.
+
+Your Entry Details:
+- Name: ${data.name || 'Not provided'}
+- Email: ${data.email || 'Not provided'}
+- Phone: ${data.phone || 'Not provided'}
+- Submitted: ${new Date().toLocaleString('en-GB')}
+
+IMPORTANT - Payment Required:
+To secure your place, please complete the bank transfer to:
+- Account: Batts Table Tennis Club
+- Sort Code: 77-13-10
+- Account Number: 23166968
+- Reference: Your name + "1Star"
+- Amount: £35.00
+- Maximum 48 entries accepted in order of receipt and payment
+- we will only contact you if payment is not received.
+
+Tournament Information:
+- Date: Sunday 2nd November 2025
+- Venue: Batts Table Tennis Club
+- Address: Norman Booth Centre, Harlow, Essex. CM17 0EY
+- Registration from: 8:15 AM
+- Play Starts: 9:15 AM
+
+Contact Information:
+- Organiser: Carl Johnson
+- Phone: 07469 844024
+- Email: carl.johnson.batts@gmail.com
+
+Good luck with your preparation!
+
+Best regards,
+BATTS Table Tennis Club
+  `;
+  
+  // Send the email
+  MailApp.sendEmail({
+    to: data.email,
+    subject: subject,
+    htmlBody: htmlBody,
+    body: textBody
+  });
 }
 
 function setCorsHeaders(response) {
