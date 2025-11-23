@@ -290,7 +290,7 @@ function sendConfirmationEmail(data) {
       <div style="background-color: #4CAF50; color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
         <h1 style="margin: 0; font-size: 24px;">🏓 Entry Confirmed!</h1>
         <p style="margin: 10px 0 0 0; font-size: 18px;">BATTS Open 1-Star Tournament</p>
-        <p style="margin: 10px 0 0 0; font-size: 16px;">Sunday 2nd November 2025</p>
+        <p style="margin: 10px 0 0 0; font-size: 16px;">Sunday 18th January 2026</p>
       </div>
       
       <div style="background-color: white; padding: 30px; border-radius: 0 0 10px 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
@@ -318,7 +318,7 @@ function sendConfirmationEmail(data) {
         
         <div style="background-color: #e3f2fd; padding: 20px; border-radius: 5px; margin: 20px 0;">
           <h3 style="color: #1976d2; margin-top: 0;">📅 Tournament Information:</h3>
-          <p style="color: #1976d2; margin: 5px 0;"><strong>Date:</strong> Sunday 2nd November 2025</p>
+          <p style="color: #1976d2; margin: 5px 0;"><strong>Date:</strong> Sunday 18th January 2026</p>
           <p style="color: #1976d2; margin: 5px 0;"><strong>Venue:</strong> Batts Table Tennis Club</p>
           <p style="color: #1976d2; margin: 5px 0;"><strong>Address:</strong> Norman Booth Centre, Harlow, Essex. CM17 0EY</p>
           <p style="color: #1976d2; margin: 5px 0;"><strong>Registration:</strong> 8:15 AM</p>
@@ -366,7 +366,7 @@ To secure your place, please complete the bank transfer to:
 - We will only contact you if payment is not received.
 
 Tournament Information:
-- Date: Sunday 2nd November 2025
+- Date: Sunday 18th January 2026
 - Venue: Batts Table Tennis Club
 - Address: Norman Booth Centre, Harlow, Essex. CM17 0EY
 - Registration from: 8:15 AM
