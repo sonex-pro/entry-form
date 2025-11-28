@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BATTS Events - Table Tennis Tournaments</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Favicon links -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-images/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="favicon-images/apple-touch-icon.png">
+  <link rel="icon" href="favicon-images/favicon-32x32.png">
+  <meta name="theme-color" content="#ffffff">
+  <style>
+    .welcome-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    
+    .logo-section {
+      margin-bottom: 40px;
+    }
+    
+    .welcome-title {
+      color: #FFFFFF;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .subtitle {
+      color: #FFFFFF;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    
+    .event-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 30px 0;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    
+    .completed-event {
+      border-color: #4CAF50;
+      background: rgba(76, 175, 80, 0.1);
+    }
+    
+    .upcoming-event {
+      border-color: #2196F3;
+      background: rgba(33, 150, 243, 0.1);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes glow {
+      from { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); }
+      to { box-shadow: 0 8px 32px rgba(33, 150, 243, 0.3); }
+    }
+    
+    .event-title {
+      color: #FFFFFF;
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    
+    .event-date {
+      color: #FFD700;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .event-description {
+      color: #FFFFFF;
+      font-size: 1em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.9em;
+      margin-top: 10px;
+    }
+    
+    .completed-badge {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    .upcoming-badge {
+      background-color: #2196F3;
+      color: white;
+    }
+    
+    .contact-section {
+      margin-top: 40px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+    }
+    
+    .contact-title {
+      color: #FFFFFF;
+      font-size: 1.3em;
+      margin-bottom: 15px;
+    }
+    
+    .contact-info {
+      color: #FFFFFF;
+      font-size: 1em;
+      line-height: 1.6;
+    }
+    
+    .contact-info a {
+      color: #FFD700;
+      text-decoration: none;
+    }
+    
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      font-size: 0.9em;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-container">
+    <div class="logo-section">
+      <h1 class="welcome-title">Welcome to batts-events.co.uk</h1>
+      <p class="subtitle">Your destination for BATTS Table Tennis Club tournaments and events</p>
+    </div>
+
+    <!-- Completed Tournament -->
+    <div class="event-card completed-event">
+      <h2 class="event-title">BATTS Senior Open 1-Star Tournament</h2>
+      <div class="event-date">November 2nd, 2025</div>
+      <div class="event-description">
+        Thank you to all players who participated in our successful 1-Star tournament! 
+        The event was completed with great competition and sportsmanship. 
+        We hope all participants enjoyed the experience at our Norman Booth Centre venue.
+      </div>
+      <div class="status-badge completed-badge">✓ Tournament Completed</div>
+    </div>
+
+    <!-- Upcoming Tournament -->
+    <div class="event-card upcoming-event">
+      <h2 class="event-title">BATTS Open Table Tennis Tournament</h2>
+      <div class="event-date">Early 2026</div>
+      <div class="event-description">
+        We're excited to announce that our next BATTS Open Table Tennis Tournament is planned for early 2026! 
+        Details including the exact date, entry requirements, and registration information will be posted here 
+        as soon as they become available. Stay tuned for what promises to be another fantastic tournament.
+      </div>
+      <div class="status-badge upcoming-badge">🏓 Coming Soon</div>
+    </div>
+
+    <!-- General Information -->
+    <div class="event-card">
+      <h2 class="event-title">Further Events</h2>
+      <div class="event-description">
+        Further events will be posted here as they are scheduled. 
+        BATTS Table Tennis Club is committed to providing quality tournament experiences 
+        for players of all levels. Keep checking back for updates on upcoming competitions, 
+        training sessions, and special events.
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+      <h3 class="contact-title">Stay Connected</h3>
+      <div class="contact-info">
+        For tournament inquiries, updates, or to join our mailing list:<br>
+        <strong>Email:</strong> <a href="mailto:carl.johnson.batts@gmail.com">carl.johnson.batts@gmail.com</a><br>
+        <strong>Phone:</strong> 07469 844024<br>
+        <strong>Organiser:</strong> Carl Johnson (TTE Level 1 Coach)
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>BATTS Table Tennis Club | Norman Booth Centre, Elderfield, Mulberry Green, Old Harlow, Essex CM17 0EY</p>
+      <p>Approved tournaments by Table Tennis England and Essex County TTA</p>
+    </div>
+  </div>
+</body>
+</html>
