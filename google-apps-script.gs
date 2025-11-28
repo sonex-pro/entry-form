@@ -313,7 +313,7 @@ function sendConfirmationEmail(data) {
           <p style="color: #856404; margin: 5px 0;"><strong>Sort Code:</strong> 77-13-10</p>
           <p style="color: #856404; margin: 5px 0;"><strong>Account Number:</strong> 23166968</p>
           <p style="color: #856404; margin: 5px 0;"><strong>Reference:</strong> Your name + "1Star"</p>
-          <p style="color: #856404; margin: 5px 0;"><strong>Amount:</strong> £35</p>
+          <p style="color: #856404; margin: 5px 0;"><strong>Amount:</strong> £33</p>
         </div>
         
         <div style="background-color: #e3f2fd; padding: 20px; border-radius: 5px; margin: 20px 0;">
@@ -361,7 +361,7 @@ To secure your place, please complete the bank transfer to:
 - Sort Code: 77-13-10
 - Account Number: 23166968
 - Reference: Your name + "1Star"
-- Amount: £35.00
+- Amount: £33.00
 - Maximum 48 entries accepted in order of receipt and payment
 - We will only contact you if payment is not received.
 

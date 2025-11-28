@@ -45,22 +45,23 @@
   </style>
 </head>
 <body>
-  <!-- REGISTRATION CLOSED NOTICE - COMMENTED OUT FOR OPEN REGISTRATION
-  <div style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 1000; background-color: #5a8a71; color: white; text-align: center; padding: 15px 30px; max-width: 800px; width: 100%; box-sizing: border-box; box-shadow: 0 4px 8px rgba(0,0,0,0.3); border-radius: 0 0 8px 8px; border: 2px solid #000000; border-top: none; word-wrap: break-word; overflow-wrap: break-word;">
+  <!-- REGISTRATION CLOSED NOTICE - ALWAYS AT TOP - To enable registration, comment out or remove this section 50 to 54-->
+  <!--Replace the disabled submit button (lines 267-271) with the commented original button-->
+  <!-- <div style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 1000; background-color: #5a8a71; color: white; text-align: center; padding: 15px 30px; max-width: 800px; width: 100%; box-sizing: border-box; box-shadow: 0 4px 8px rgba(0,0,0,0.3); border-radius: 0 0 8px 8px; border: 2px solid #000000; border-top: none; word-wrap: break-word; overflow-wrap: break-word;">
     <h2 style="margin: 0 0 10px 0; font-size: clamp(16px, 3.5vw, 20px); font-weight: bold;">🚫 Registration Closed</h2>
     <p style="margin: 0 0 8px 0; font-size: clamp(14px, 3vw, 16px); font-weight: 500;">All spots have been filled!</p>
     <p style="margin: 0; font-size: clamp(14px, 2.5vw, 16px); line-height: 1.3; word-wrap: break-word; overflow-wrap: break-word;">Should any players withdraw, additional places may open up.<br>To join the reserve list, please email: <a href="mailto:carl.johnson.batts@gmail.com" style="color: #fff; text-decoration: underline; font-weight: bold; word-wrap: break-word;">carl.johnson.batts@gmail.com</a></p>
-  </div>
-  END REGISTRATION CLOSED NOTICE -->
+  </div> -->
+  <!-- END REGISTRATION CLOSED NOTICE -->
 
-  <!-- Padding removed since registration notice is commented out -->
-  <div>
+  <!-- Add padding to body content to account for fixed header -->
+  <div style="padding-top: 20px;">
     <div id="success-message" style="display: none; background-color: #4CAF50; color: white; text-align: center; padding: 20px; margin: 20px auto; max-width: 800px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">Your entry has been successfully submitted! To secure your place in the Batts 1-Star tournament, please complete the bank transfer. Thank you, and good luck!</div>
   
     <div class="form-container">
     <h1 style="color: #FFFFFF;">BATTS Senior Open 1-Star Tournament<br>Sunday 18th January 2026<br>Sponsored by Bribar</h1>
 
-    <form id="entryForm" action="https://script.google.com/macros/s/AKfycbzosDAik_qRDe65NagUr_yyJ56fL-udCfJ37_ZYdUrObDNlFTWpXuSkZzwGWXdLP9f5uw/exec" method="POST" target="_blank">
+    <form id="entryForm" action="https://script.google.com/macros/s/AKfycbw9QycJ4aEN6wccI98DJJxrl_cltvC8ur_NKlxdNoERxVSvJ095EZx2iXjCNU1MJm2ewA/exec" method="POST" target="_blank">
       <!-- Section 1: Info -->
       <div class="form-section active">
         <div class="info-text">
@@ -77,30 +78,26 @@
           <ul>
             <li>The tournament is approved by TTE and Essex County TTA</li>
             <li>Tournament date: Sunday, 18th January 2026</li>
-            <li>Entry closing date: Wednesday 14th of January 2026 at 10pm</li>
+            <li>Entry closing date: Thursday 15th of January 2026 at 10pm</li>
             <li>Venue: BATTS TT Club, Norman Booth Centre, Elderfield, Mulberry Green, Old Harlow, Essex CM17 0EY</li>
             <li>Referee: Neil Brierley (TO2 qualification)</li>
             <li>Organiser: Carl Johnson (TTE Level 1 coach) – Tel: 07469 844024, Email: <a href="mailto:carl.johnson.batts@gmail.com">carl.johnson.batts@gmail.com</a></li>
             <li>The tournament is included in the Computer Ranking Scheme. Players will be ranked based on the latest computer ranking list, no restriction on gender.</li>
-            <li>Players will be divided into 8 groups, each consisting of 6 players. All 48 players will advance from their respective groups to the knockout rounds, where they will be placed into bands A, B, or C
-              If insufficient entries are received in any gender category that make the event non-viable, the Referee reserves the right to merge those categories into a mixed event</li>
+            <li>Players will be divided into 8 groups, each consisting of 6 players. All 48 players will advance from their respective groups to the knockout rounds, where they will be placed into bands A, B, or C.</li>
             <div class="prize-money-section">
-              <li>Total Prize Money £630 will be Awarded To:</li>
-              <li>Men's Band A Winner £110, Runner Up £50 Semi finalists £25<br>
-                Women's Band A Winner £110, Runner Up £50 Semi finalists £25</li>
-              <li>Men's Band B Winner £35, Runner Up £25<br>
-                Women's Band B Winner £35, Runner Up £25</li>
-              <li>Men's Band C Winner £25, Runner Up £20<br>
-                Women's Band C Winner £25, Runner Up £20</li>
-              <li class="merged-events-text"><strong>If events are merged due to entries making separate gender based events non viable, the prize money for those events will be merged.</strong></li>
+              <li>Total Prize Money £500 will be Awarded To:</li>
+              <li>Band A Winner £200, Runner Up £100<br>
+              <li>Band B Winner £70, Runner Up £50<br>
+              <li>Band C Winner £45, Runner Up £35<br>
+              <li class="merged-events-text"><strong>Prize money will be reduced if a full entry of 48 players is not made</strong></li>
             </div>
           </ul>
           <p><strong>Entry fee:</strong></p>
-          <p>£35.00 (A refund of £5 can be claimed if you umpire at the knockout stage)</p>
-          <p>Total to be paid to Batts Table Tennis Club £35.00.<br>Sort code : 77-13-10 Account Number : 23166968</p>
+          <p>£33.00</p>
+          <p>Total to be paid to Batts Table Tennis Club £33.00.<br>Sort code : 77-13-10 Account Number : 23166968</p>
           <p>Maximum 48 entries accepted in order of receipt and payment</p>
           <p>The tournament runs all day (approx. 9:15am to 5:30pm), players must be available for morning and afternoon sessions, venue opens at 8:00am for registration & practice (play starts 9:15am)</p>
-          <p>Under 18s must be accompanied by an adult, the draw will be made on 31st October but not published in advance</p>
+          <p>Under 18s must be accompanied by an adult, the draw will be made on 16th January 2026 but not published in advance</p>
           <p>Refreshments and food are available to purchase from our cafeteria using cash or card</p>
           <p>Are you new to playing in tournaments? If so, here is a link to the Table Tennis England website where you can find lots of useful information. <a href="https://www.tabletennisengland.co.uk/compete/">Start competing - Table Tennis England</a></p>
         </div>
@@ -121,33 +118,32 @@
           <li>3. ITTF Regulations for International Competitions apply to the tournament except where otherwise specified in TTE Regulations Parts A or B, or in this form.</li>
           <li>4. Completion and submission of this Entry Form signifies agreement by the entrant to the conditions of the competition, including any variations of ITTF regulations.</li>
           <li>5. Entries must be submitted with full payment of fees.</li>
-          <li>6. If insufficient entries are received in any gender category that make the event non-viable, the Referee reserves the right to merge those categories into a mixed event.</li>
-          <li>7. Main colour of clothing must be different from colour of ball</li>
-          <li>8. No competitor or official shall engage in betting on players or matches.</li>
-          <li>9. Doping shall not take place either before or during play, but doping control tests may take place.</li>
-          <li>10. Completion and submission of this Entry Form signifies agreement by the entrant to the conditions of the competition including any variations of ITTF regulations.<br>Full payment at the time of registration will be required to secure your entry, entries received with no payment will not be entered.</li>
-          <li>11. Playing conditions Play will be on 8 Tibhar tables with Tibhar posts and nets, tournament balls will be Tibhar 40+ 3star ITTF approved, score indicators will be used for all matches.<br>Each table will be in an individual court enclosed by surrounds and will be 4.7 metres wide by 9.9 metres in length.<br>The minimum height of playing area is 8 metres and the minimum height of lighting from floor is 8 metres, lighting is general LED, flooring is semi-sprung timber.</li>
-          <li>12. No entry will be accepted after the draw has been made, subject to the discretion of the Referee.</li>
-          <li>13. All entries and event details are subject to COVID-related restrictions, or protocols that Table Tennis England may deem necessary. Venues used for events may impose COVID restrictions that go beyond government guidance.</li>
-          <li>14. All competitors may be required to umpire at least one match in each event entered, umpiring will be required in the knockout rounds to help ensure the tournament finishes on time.<br>Players who volunteer to umpire during the knockout stage can receive a £5 refund at the control desk.</li>
-          <li>15. Each match will consist of best of 5 games, each game up to 11 points with a 2 point difference to decide the winner. All players will compete in a group of 6 ( unless there are player absences ).<br>All players will advance to the knock out banding stage, Band A, Band B and Band C.The final order in a group shall be determined as per ITTF regulation 3.7.5 for group competitions.</li>
-          <li>16. There will be no separate practice facilities, but competitors will be permitted to practice on match tables at the discretion of Control.</li>
-          <li>17. All participants and attendees at Table Tennis England events are subject to Table Tennis England Codes of Conduct. <a href="https://www.tabletennisengland.co.uk/about-us/safeguarding/safeguarding-codes-of-conduct-and-terms-of-reference/">See Here</a></li>
-          <li>18. TTE, the Organisers and the Referee will not tolerate bad language or verbal abuse of volunteers, officials, staff or venue staff, nor a failure to follow the operational directions of stewards and event staff. We will treat all such instances extremely seriously and will take disciplinary action if necessary. For further details, please see the Table Tennis England <a href="https://www.tabletennisengland.co.uk/about-us/policies-and-procedures/">workforce protection policy</a></li>  
-          <li>19. Photo/livestreaming Batts TT Club may be taking photos and live streaming matches during
+          <li>6. Main colour of clothing must be different from colour of ball</li>
+          <li>7. No competitor or official shall engage in betting on players or matches.</li>
+          <li>8. Doping shall not take place either before or during play, but doping control tests may take place.</li>
+          <li>9. Completion and submission of this Entry Form signifies agreement by the entrant to the conditions of the competition including any variations of ITTF regulations.<br>Full payment at the time of registration will be required to secure your entry, entries received with no payment will not be entered.</li>
+          <li>10. Playing conditions Play will be on 8 Tibhar tables with Tibhar posts and nets, tournament balls will be Tibhar 40+ 3star ITTF approved, score indicators will be used for all matches.<br>Each table will be in an individual court enclosed by surrounds and will be 4.7 metres wide by 9.9 metres in length.<br>The minimum height of playing area is 8 metres and the minimum height of lighting from floor is 8 metres, lighting is general LED, flooring is semi-sprung timber.</li>
+          <li>11. No entry will be accepted after the draw has been made, subject to the discretion of the Referee.</li>
+          <li>12. All entries and event details are subject to COVID-related restrictions, or protocols that Table Tennis England may deem necessary. Venues used for events may impose COVID restrictions that go beyond government guidance.</li>
+          <li>13. All competitors may be required to umpire at least one match in each event entered, umpiring will be required in the knockout rounds to help ensure the tournament finishes on time.</li>
+          <li>14. Each match will consist of best of 5 games, each game up to 11 points with a 2 point difference to decide the winner. All players will compete in a group of 6 ( unless there are player absences ).<br>All players will advance to the knock out banding stage, Band A, Band B and Band C.The final order in a group shall be determined as per ITTF regulation 3.7.5 for group competitions.</li>
+          <li>15. There will be no separate practice facilities, but competitors will be permitted to practice on match tables at the discretion of Control.</li>
+          <li>16. All participants and attendees at Table Tennis England events are subject to Table Tennis England Codes of Conduct. <a href="https://www.tabletennisengland.co.uk/about-us/safeguarding/safeguarding-codes-of-conduct-and-terms-of-reference/">See Here</a></li>
+          <li>17. TTE, the Organisers and the Referee will not tolerate bad language or verbal abuse of volunteers, officials, staff or venue staff, nor a failure to follow the operational directions of stewards and event staff. We will treat all such instances extremely seriously and will take disciplinary action if necessary. For further details, please see the Table Tennis England <a href="https://www.tabletennisengland.co.uk/about-us/policies-and-procedures/">workforce protection policy</a></li>  
+          <li>18. Photo/livestreaming Batts TT Club may be taking photos and live streaming matches during
             this event which may include (but not limited to), using them in our printed and online platforms, social
             media, press releases and funding applications. If you do not give permission to take photographs
             and/or video of you (or individuals for whom you are legally responsible), please contact: <a href="mailto:carl.johnson.batts@gmail.com">carl.johnson.batts@gmail.com</a>. Please be aware that we follow the Table Tennis England <a href="https://www.tabletennisengland.co.uk/about-us/safeguarding/photography-guidelines/">Photo and live streaming Policy</a></li>
-          <li>20. Entry closing date: Wednesday 14th of January 2026 at 10pm. The draw will be made on Friday 16th of January.</li>
-          <li>21. If it becomes necessary to restrict entries, priority will be given in order of receipt.</li>
-          <li>22. In conjunction with the TTE Child Protection Policy, persons wishing to take photographs or video images must register with the event organiser, producing their professional identification, TTE authorisation or a completed TTE authorisation form.</li>
-          <li>23. All competitors will be required to sign in upon their arrival, should not leave the centre without notifying the referee. Players absent when due to play are liable to be scratched from their next match. Practice will only be permitted prior to the event starting.</li>
-          <li>24. There will be no charge for admission.</li>
-          <li>25. Changing facilities: changing rooms with showers are available, lockers are not available.<br> The centre is not liable for any personal property left unattended</li>
-          <li>26. The referee’s decision shall be final on a point of law and on any question arising not provided for in these regulations, or in any dispute as to the interpretation thereof.</li>
-          <li>27. Refreshments and food are available to purchase from our cafeteria located upstairs on the first floor with a viewing gallery, any drinks spilled in the playing hall must be cleaned up immediately, free WiFi is available at the venue.</li>
-          <li>28. Parking, onsite hard-standing parking is available, with additional parking on a nearby field (at your own risk due to possible wet or muddy conditions).<br>Extra parking is also available at The Green Man Pub/Hotel car park.<br>There are no parking charges for players or spectators, but please ensure access for emergency services is not obstructed.</li>
-          <li>29. Payment of the entry fee £35.00 should be paid by bank transfer to Batts Table Tennis Club<br>Sort code: 77-13-10 Account Number: 23166968</li>
+          <li>19. Entry closing date: Thursday 15th of January 2026 at 10pm. The draw will be made on Friday 16th of January.</li>
+          <li>20. If it becomes necessary to restrict entries, priority will be given in order of receipt.</li>
+          <li>21. In conjunction with the TTE Child Protection Policy, persons wishing to take photographs or video images must register with the event organiser, producing their professional identification, TTE authorisation or a completed TTE authorisation form.</li>
+          <li>22. All competitors will be required to sign in upon their arrival, should not leave the centre without notifying the referee. Players absent when due to play are liable to be scratched from their next match. Practice will only be permitted prior to the event starting.</li>
+          <li>23. There will be no charge for admission.</li>
+          <li>24. Changing facilities: changing rooms with showers are available, lockers are not available.<br> The centre is not liable for any personal property left unattended</li>
+          <li>25. The referee’s decision shall be final on a point of law and on any question arising not provided for in these regulations, or in any dispute as to the interpretation thereof.</li>
+          <li>26. Refreshments and food are available to purchase from our cafeteria located upstairs on the first floor with a viewing gallery, any drinks spilled in the playing hall must be cleaned up immediately, free WiFi is available at the venue.</li>
+          <li>27. Parking, onsite hard-standing parking is available, with additional parking on a nearby field (at your own risk due to possible wet or muddy conditions).<br>Extra parking is also available at The Green Man Pub/Hotel car park.<br>There are no parking charges for players or spectators, but please ensure access for emergency services is not obstructed.</li>
+          <li>28. Payment of the entry fee £33.00 should be paid by bank transfer to Batts Table Tennis Club<br>Sort code: 77-13-10 Account Number: 23166968</li>
           <p>No player shall be entered into the groups until all appropriate fees have been paid.</p>
           <p>Fees will not be refunded 1 week prior to the closing date</p>
         </ul>
@@ -187,7 +183,7 @@
         <input type="text" id="disability" name="disability" placeholder="Optional">
 
         <div class="gender-section">
-          <label class="required">Gender Selection</label>
+          <label class="required">Gender this information helps us plan future tournament participation.</label>
           <div style="margin-bottom: 20px;">
             <label style="display: block; margin-bottom: 10px; font-weight: normal; cursor: pointer;">
               <input type="checkbox" id="gender-male" name="gender" value="male" style="margin-right: 8px;"> Male
@@ -266,8 +262,11 @@
           <p style="font-size: 14px; margin: 5px 0; color: #ccc;">Please ensure all information is correct before submitting.</p>
         </div>
           
-        <!-- SUBMIT BUTTON ENABLED FOR NEW TOURNAMENT -->
+        <!-- SUBMIT BUTTON ENABLED -->
         <input type="submit" id="submitBtn" value="Submit Entry">
+        <!-- DISABLED BUTTON (uncomment to disable):
+        <input type="submit" id="submitBtn" value="Registration Closed" disabled style="background-color: #ccc; cursor: not-allowed; opacity: 0.6;">
+        -->
         <!-- Design credit -->
         <div style="text-align: center; margin-top: 20px; padding: 10px; font-size: 12px; color: white; border-bottom: 1px solid rgba(255,255,255,0.2);">
           Form designed by: <a href="mailto:carl.johnson.batts@gmail.com" style="color: white; text-decoration: none;">carl.johnson.batts@gmail.com</a>
@@ -297,6 +296,13 @@
     });
     
     document.getElementById('entryForm').addEventListener('submit', function(event) {
+      // REGISTRATION CLOSED - Prevent all form submissions
+      // To re-enable submissions, comment out the next 4 lines
+      // event.preventDefault();
+      // alert('Registration is currently closed. Please email carl.johnson.batts@gmail.com to join the reserve list.');
+      // return false;
+      
+      // ORIGINAL VALIDATION CODE (re-enabled for submissions):
       // Check if exactly one gender is selected
       const genderSelected = maleCheckbox.checked || femaleCheckbox.checked;
       
