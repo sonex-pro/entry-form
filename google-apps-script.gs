@@ -39,8 +39,8 @@ function doPost(e) {
     Logger.log('Current headers: %s', JSON.stringify(headers));
     
     if (headers.length === 0 || (headers.length === 1 && headers[0] === "")) {
-      // Define specific column order: name, gender, tte number, dob, club, county, email, phone, disability
-      const newHeaders = ['name', 'gender', 'tte number', 'dob', 'club', 'county', 'email', 'phone', 'disability'];
+      // Define specific column order: name, email, phone, club, county, disability, player-name-print, undertaking-date, guardian-name, guardian-relation, guardian-date
+      const newHeaders = ['name', 'email', 'phone', 'club', 'county', 'disability', 'player-name-print', 'undertaking-date', 'guardian-name', 'guardian-relation', 'guardian-date'];
       
       // Add any other fields that aren't in the predefined order
       Object.keys(data).forEach(key => {
@@ -115,28 +115,13 @@ function doPost(e) {
     
     const rowData = headers.map(header => {
       if (header === "timestamp") return new Date().toISOString();
-      
-      // Convert gender values
-      if (header === "gender") {
-        const genderValue = data[header];
-        if (genderValue === "male") return "M";
-        if (genderValue === "female") return "F";
-        return genderValue || "";
-      }
-
       return data[header] || "";
     });
     
     Logger.log('Row data to append: %s', JSON.stringify(rowData));
     const newRow = sheet.appendRow(rowData);
     
-    // Apply purple formatting to 'F' entries in gender column
-    const genderColumnIndex = headers.indexOf('gender');
-    if (genderColumnIndex !== -1 && data.gender === 'female') {
-      const currentRow = sheet.getLastRow();
-      const genderCell = sheet.getRange(currentRow, genderColumnIndex + 1);
-      genderCell.setFontColor('#ff0000'); // Red color
-    }
+    // No special formatting needed for current fields
 
     Logger.log('Data successfully appended to sheet');
     
@@ -188,7 +173,7 @@ function doPost(e) {
       <body>
         <div class="success-container">
           <h1>🏓 Entry Submitted Successfully!</h1>
-          <p><strong>Your entry for the BATTS Open 1-Star Tournament has been successfully submitted!</strong></p>
+          <p><strong>Your entry for the Pr🏓Spin Open Table Tennis Tournament has been successfully submitted!</strong></p>
           <p>📧 <strong>A confirmation email has been sent to your email address</strong> with all the tournament details and payment information.</p>
           <p>To secure your place in the tournament, please complete the bank transfer to Batts Table Tennis Club.</p>
           <p>Bank details can be found in the entry form</p>
@@ -283,20 +268,20 @@ function doPost(e) {
 }
 
 function sendConfirmationEmail(data) {
-  const subject = '🏓 BATTS Open 1-Star Tournament - Entry Confirmation';
+  const subject = '🏓 Pr🏓Spin Open Table Tennis Tournament - Entry Confirmation';
   
   const htmlBody = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f5f5f5; padding: 20px;">
       <div style="background-color: #4CAF50; color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
         <h1 style="margin: 0; font-size: 24px;">🏓 Entry Confirmed!</h1>
-        <p style="margin: 10px 0 0 0; font-size: 18px;">BATTS Open 1-Star Tournament</p>
+        <p style="margin: 10px 0 0 0; font-size: 18px;">Pr🏓Spin Open Table Tennis Tournament</p>
         <p style="margin: 10px 0 0 0; font-size: 16px;">Sunday 18th January 2026</p>
       </div>
       
       <div style="background-color: white; padding: 30px; border-radius: 0 0 10px 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
         <p style="font-size: 16px; color: #333; margin-bottom: 20px;">Dear ${data.name || 'Player'},</p>
         
-        <p style="font-size: 16px; color: #333; line-height: 1.6;">Thank you for entering the <strong>BATTS Open 1-Star Tournament</strong>! Your entry has been successfully received and recorded.</p>
+        <p style="font-size: 16px; color: #333; line-height: 1.6;">Thank you for entering the <strong>Pr🏓Spin Open Table Tennis Tournament</strong>! Your entry has been successfully received and recorded.</p>
         
         <div style="background-color: #e8f5e8; padding: 20px; border-radius: 5px; margin: 20px 0;">
           <h3 style="color: #2e7d32; margin-top: 0;">📋 Your Entry Details:</h3>
@@ -343,11 +328,11 @@ function sendConfirmationEmail(data) {
   `;
   
   const textBody = `
-BATS Open 1-Star Tournament - Entry Confirmation
+Pr🏓Spin Open Table Tennis Tournament - Entry Confirmation
 
 Dear ${data.name || 'Player'},
 
-Thank you for entering the BATTS Open 1-Star Tournament! Your entry has been successfully received.
+Thank you for entering the Pr🏓Spin Open Table Tennis Tournament! Your entry has been successfully received.
 
 Your Entry Details:
 - Name: ${data.name || 'Not provided'}
