@@ -345,7 +345,7 @@ To secure your place, please complete the bank transfer to:
 - Account: Batts Table Tennis Club
 - Sort Code: 77-13-10
 - Account Number: 23166968
-- Reference: Your name + "1Star"
+- Reference: PSpin
 - Amount: £33.00
 - Maximum 48 entries accepted in order of receipt and payment
 - We will only contact you if payment is not received.
