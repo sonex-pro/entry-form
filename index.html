@@ -79,23 +79,21 @@
       <h2 class="header-venue" style="color: #000; margin-top: 15px; margin-bottom: 0; font-size: 18px; line-height: 1.2; font-weight: normal; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; text-shadow: none; transform: translateZ(0);">Venue: BATTS TT Club, Norman Booth Centre, Elderfield, Mulberry Green, Old Harlow, Essex CM17 0EY</h2>
     </div>
 
-    <form id="entryForm" action="https://script.google.com/macros/s/AKfycbxJZuMl0EFuhsfBmehVUghOLKYKNjpZDdrEaxVxKrtIdZXGGHqkGDM8gWh1MaonXqDZ/exec" method="POST" target="_blank">
+    <form id="entryForm" action="https://script.google.com/macros/s/AKfycbzxbaN26gaInZIbOr5M_EUMT1-2wFWPLQ-S5v54z1S-yKeSN83q_gsu_6NuPiNbVwuBgA/exec" method="POST" target="_blank">
       <!-- Section 1: Info -->
       <div class="form-section active">
         <div class="info-text">
-          <p><strong>Tournament entry form</strong></p>
-          <p>This form is quick and paperless, but please:</p>
+          <p><strong>Tournament Online Entry Form</strong></p>
           <ul>
-            <li>Read all details carefully before starting</li>
-            <li>There is  no age limitation</li>
-            <li>Make sure you <strong>press SUBMIT</strong> at the end</li>
+            <li>Read all details carefully before submission</li>
+            <li>Open to all ages, no age restrictions apply.</li>
             <li>Complete payment after submission to confirm your entry</li>
           </ul>
           <p><strong>Event details:</strong></p>
           <div style="border-top: 1px solid #deecde; margin: 16px 0;"></div>
           <ul>
             <li>Sponsored by Bribar Table Tennis & Pickleball Suppliers</li>
-            <li>This Pr🏓Spin tournament is not a ranking tournament</li>
+            <li>The Pr🏓Spin tournament is a not-for-profit event dedicated to fundraising for junior coaching programs at Batts Table Tennis Club</li>
             <li>Tournament date: Sunday, 18th January 2026</li>
             <li>Venue: BATTS TT Club, Norman Booth Centre, Elderfield, Mulberry Green, Old Harlow, Essex CM17 0EY</li>
             <li>Referee: Carl Johnson Tel: 07469 844024, Email: <a href="mailto:carl.johnson.batts@gmail.com">carl.johnson.batts@gmail.com</a></li>
@@ -129,7 +127,7 @@
         <p><strong>Tournament Conditions</strong></p>
         <ul style="list-style-type: none; padding-left: 0;">
           <li>1. Completion and submission of this Entry Form signifies agreement by the entrant to the conditions of the competition.</li>
-          <li>2. The tournament is not organised by Batts Table Tennis Club.</li>
+          <li>2. The Pr🏓Spin tournament is not a ranking tournament</li>
           <li>3. The tournament is open to players of all ages and genders.</li>
           <li>4. Entries must be submitted with full payment of fees.</li>
           <li>5. Completion and submission of this Entry Form signifies agreement by the entrant to the conditions of the competition.<br>Full payment at the time of registration will be required to secure your entry, entries received with no payment will not be entered.</li>
@@ -217,10 +215,10 @@
           <p style="font-size: 14px; margin: 5px 0; color: #ccc;">Please ensure all information is correct before submitting.</p>
         </div>
           
-        <!-- SUBMIT BUTTON DISABLED - TOURNAMENT PENDING APPROVAL -->
-        <input type="submit" id="submitBtn" value="Tournament Pending Approval" disabled style="background-color: #ccc; cursor: not-allowed; opacity: 0.6;">
-        <!-- ENABLED BUTTON (uncomment when approved):
+        <!-- SUBMIT BUTTON ENABLED FOR TESTING -->
         <input type="submit" id="submitBtn" value="Submit Entry">
+        <!-- DISABLED BUTTON (for when tournament is pending):
+        <input type="submit" id="submitBtn" value="Tournament Pending Approval" disabled style="background-color: #ccc; cursor: not-allowed; opacity: 0.6;">
         -->
         <!-- Design credit -->
         <div style="text-align: center; margin-top: 20px; padding: 10px; font-size: 12px; color: white; border-bottom: 1px solid rgba(255,255,255,0.2);">
@@ -233,11 +231,11 @@
 
   <script>
     document.getElementById('entryForm').addEventListener('submit', function(event) {
-      // TOURNAMENT PENDING APPROVAL - Prevent all form submissions
+      // TOURNAMENT PENDING APPROVAL - Prevent all form submissions (COMMENTED OUT FOR TESTING)
       // To re-enable submissions, comment out the next 4 lines
-      event.preventDefault();
-      alert('Tournament is pending approval. Registration will open once confirmed. Please email carl.johnson.batts@gmail.com for updates.');
-      return false;
+      // event.preventDefault();
+      // alert('Tournament is pending approval. Registration will open once confirmed. Please email carl.johnson.batts@gmail.com for updates.');
+      // return false;
       
       // ORIGINAL VALIDATION CODE (re-enabled for submissions):
       // Disable the submit button
