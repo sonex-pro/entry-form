@@ -297,7 +297,7 @@ function sendConfirmationEmail(data) {
           <p style="color: #856404; margin: 5px 0;"><strong>Account:</strong> Batts Table Tennis Club</p>
           <p style="color: #856404; margin: 5px 0;"><strong>Sort Code:</strong> 77-13-10</p>
           <p style="color: #856404; margin: 5px 0;"><strong>Account Number:</strong> 23166968</p>
-          <p style="color: #856404; margin: 5px 0;"><strong>Reference:</strong> Your name + "1Star"</p>
+          <p style="color: #856404; margin: 5px 0;"><strong>Reference:</strong> PSpin</p>
           <p style="color: #856404; margin: 5px 0;"><strong>Amount:</strong> £33</p>
         </div>
         
