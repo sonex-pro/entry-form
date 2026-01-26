@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stripe JS -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <title>BATTS Senior 1-Star Tournament April 26th 2026 Entry Form</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Favicon links -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-images/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="favicon-images/apple-touch-icon.png">
+  <link rel="icon" href="favicon-images/favicon-32x32.png">
+  <meta name="theme-color" content="#ffffff">
+  <style>
+    .form-section {
+      display: block;
+      margin-bottom: 30px;
+    }
+    .required:after {
+      content: ' *';
+      color: red;
+      font-weight: bold;
+    }
+    .required-note {
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .prize-money-section {
+      background-color: #00000000;
+      border: none;
+      border-top: 1px solid #deecde;
+      border-bottom: 1px solid #deecde;
+      border-radius: 0;
+      padding: 15px 0;
+      margin: 10px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .prize-money-section li {
+      font-weight: 500;
+      color: white;
+    }
+    .prize-money-section .merged-events-text {
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <div id="success-message" style="display: none; background-color: #4CAF50; color: white; text-align: center; padding: 20px; margin: 20px auto; max-width: 800px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">Your entry has been successfully submitted! To secure your place in the Batts 1-Star tournament, please complete the bank transfer. Thank you, and good luck!</div>
+  
+  <div class="form-container">
+    <h1 style="color: #FFFFFF;">BATTS Senior Open 1-Star Tournament<br>Date Pending Approval<br>Sponsored by Bribar</h1>
+
+    <form id="entryForm">
+      <!-- Section 1: Info -->
+      <div class="form-section active">
+        <div class="info-text">
+          <p><strong>Tournament entry form</strong></p>
+          <p>This form is quick and paperless, but please:</p>
+          <ul>
+            <li>Read all details carefully before starting</li>
+            <li>There is  no age limitation</li>
+            <li>Make sure you <strong>press SUBMIT</strong> at the end</li>
+            <li>Complete payment after submission to confirm your entry</li>
+          </ul>
+          <p><strong>Event details:</strong></p>
+          <div style="border-top: 1px solid #deecde; margin: 16px 0;"></div>
+          <ul>
+            <li>The tournament is approved by TTE and Essex County TTA</li>
+            <li>Tournament date: Sunday 26th April 2026</li>
+            <li>Entry closing date: Wednesday 23rd April at 10pm</li>
+            <li>Venue: BATTS TT Club, Norman Booth Centre, Elderfield, Mulberry Green, Old Harlow, Essex CM17 0EY</li>
+            <li>Referee: Neil Brierley (TO2 qualification)</li>
+            <li>Organiser: Carl Johnson (BATTS communications manager)  Tel: 07469 844024, Email: <a href="mailto:carl.johnson.batts@gmail.com">carl.johnson.batts@gmail.com</a></li>
+            <li>The tournament is included in the Computer Ranking Scheme. Players will be ranked based on the latest computer ranking list, no restriction on gender.</li>
+            <li>Players will be divided into 6 groups, each consisting of 6 players. All 36 players will advance from their respective groups to the knockout rounds, where they will be placed into bands A, B, or C.<br>If insufficient entries are received in any gender category that make the event non-viable, the Referee reserves the right to merge those categories into a mixed event and or play a separate mens or womens round-robin.</li>
+            <div class="prize-money-section">
+              <li>Band 1 Winner £200, Runner Up £60<br>
+              <li>Band 2 Winner medal, Runner Up medal<br>
+              <li>Band 3 Winner medal, Runner medal</li>
+            </div>
+          </ul>
+          <p><strong>Entry fee:</strong></p>
+          <p>£33.00</p>
+          <p>Maximum 36 entries accepted in order of receipt and payment</p>
+          <p>The tournament runs all day (approx. 9:15am to 5:30pm), players must be available for morning and afternoon sessions, venue opens at 8:15am for registration & practice (play starts 9:20am)</p>
+          <p>Under 18s must be accompanied by an adult, the draw will be made on 24th April but not published in advance</p>
+          <p>Refreshments and food are available to purchase from our cafeteria using cash or card</p>
+          <p>Are you new to playing in tournaments? If so, here is a link to the Table Tennis England website where you can find lots of useful information. <a href="https://www.tabletennisengland.co.uk/compete/">Start competing - Table Tennis England</a></p>
+        </div>
+
+        <!-- Design credit -->
+        <div style="text-align: center; margin-top: 20px; padding: 10px; font-size: 12px; color: white; border-bottom: 1px solid rgba(255,255,255,0.2);">
+          Form designed by: <a href="mailto:carl.johnson.batts@gmail.com" style="color: white; text-decoration: none;">carl.johnson.batts@gmail.com</a>
+        </div>
+      </div>
+
+      <!-- Section 2: Tournament Regulations -->
+      <div class="form-section" id="section3">
+        <h1>Section 2</h1>
+        <p><strong>Tournament Regulations and Conditions</strong></p>
+        <ul style="list-style-type: none; padding-left: 0;">
+          <li>1. Every entrant must be affiliated as a Compete Member or provide proof of being a member of another National Association in membership of the ITTF in order to gain a reciprocal membership. An entrant who is not a TTE member or is affiliated as a Supporter or Club Play Member may alternately purchase a One-Off Tournament Pass at the time of entry via <a href="https://tabletennisengland.sport80.com/">https://tabletennisengland.sport80.com/</a> once this product is launched. It is not possible to obtain the OTTP at the tournament.</li>
+          <li>2. TTE Regulations Part A (Regulated Competitions) and Part B (Tournament Regulations) apply to the tournament.</li>
+          <li>3. ITTF Regulations for International Competitions apply to the tournament except where otherwise specified in TTE Regulations Parts A or B, or in this form.</li>
+          <li>4. Completion and submission of this Entry Form signifies agreement by the entrant to the conditions of the competition, including any variations of ITTF regulations.</li>
+          <li>5. Entries must be submitted with full payment of fees.</li>
+          <li>6. If insufficient entries are received in any gender category that make the event non-viable, the Referee reserves the right to merge those categories into a mixed event.</li>
+          <li>7. Main colour of clothing must be different from colour of ball</li>
+          <li>8. No competitor or official shall engage in betting on players or matches.</li>
+          <li>9. Doping shall not take place either before or during play, but doping control tests may take place.</li>
+          <li>10. Completion and submission of this Entry Form signifies agreement by the entrant to the conditions of the competition including any variations of ITTF regulations.<br>Full payment at the time of registration will be required to secure your entry, entries received with no payment will not be entered.</li>
+          <li>11. Playing conditions Play will be on 8 Tibhar tables with Tibhar posts and nets, tournament balls will be Butterfly 40+ 3star ITTF approved, score indicators will be used for all matches.<br>Each table will be in an individual court enclosed by surrounds and will be 4.7 metres wide by 9.9 metres in length.<br>The minimum height of playing area is 8 metres and the minimum height of lighting from floor is 8 metres, lighting is general LED, flooring is semi-sprung timber.</li>
+          <li>12. No entry will be accepted after the draw has been made, subject to the discretion of the Referee.</li>
+          <li>13. All entries and event details are subject to COVID-related restrictions, or protocols that Table Tennis England may deem necessary. Venues used for events may impose COVID restrictions that go beyond government guidance.</li>
+          <li>14. All competitors may be required to umpire at least one match in each event entered, umpiring will be required in the knockout rounds to help ensure the tournament finishes on time.</li>
+          <li>15. Each match will consist of best of 5 games, each game up to 11 points with a 2 point difference to decide the winner. All players will compete in a group of 6 ( unless there are player absences ).<br>All players will advance to the knock out stage, Band A, Band B and Band C.<br>The final order in a group shall be determined as per ITTF regulation 3.7.5 for group competitions.</li>
+          <li>16. There will be no separate practice facilities, but competitors will be permitted to practice on match tables at the discretion of Control.</li>
+          <li>17. All participants and attendees at Table Tennis England events are subject to Table Tennis England Codes of Conduct. <a href="https://www.tabletennisengland.co.uk/about-us/safeguarding/safeguarding-codes-of-conduct-and-terms-of-reference/">See Here</a></li>
+          <li>18. TTE, the Organisers and the Referee will not tolerate bad language or verbal abuse of volunteers, officials, staff or venue staff, nor a failure to follow the operational directions of stewards and event staff. We will treat all such instances extremely seriously and will take disciplinary action if necessary. For further details, please see the Table Tennis England <a href="https://www.tabletennisengland.co.uk/about-us/policies-and-procedures/">workforce protection policy</a></li>  
+          <li>19. Photo/livestreaming Batts TT Club may be taking photos and live streaming matches during
+            this event which may include (but not limited to), using them in our printed and online platforms, social
+            media, press releases and funding applications. If you do not give permission to take photographs
+            and/or video of you (or individuals for whom you are legally responsible), please contact: <a href="mailto:carl.johnson.batts@gmail.com">carl.johnson.batts@gmail.com</a>. Please be aware that we follow the Table Tennis England <a href="https://www.tabletennisengland.co.uk/about-us/safeguarding/photography-guidelines/">Photo and live streaming Policy</a></li>
+          <li>20. Entry closing date: Wednesday 22nd of April 2026 at 10pm. The draw will be made on Friday 24th of April 2026.</li>
+          <li>21. If it becomes necessary to restrict entries, priority will be given in order of receipt.</li>
+          <li>22. In conjunction with the TTE Child Protection Policy, persons wishing to take photographs or video images must register with the event organiser, producing their professional identification, TTE authorisation or a completed TTE authorisation form.</li>
+          <li>23. All competitors will be required to sign in upon their arrival, should not leave the centre without notifying the referee. Players absent when due to play are liable to be scratched from their next match. Practice will only be permitted prior to the event starting.</li>
+          <li>24. There will be no charge for admission.</li>
+          <li>25. Changing facilities: changing rooms with showers are available, lockers are not available.<br> The centre is not liable for any personal property left unattended</li>
+          <li>26. The referee's decision shall be final on a point of law and on any question arising not provided for in these regulations, or in any dispute as to the interpretation thereof.</li>
+          <li>27. Refreshments and food are available to purchase from our cafeteria located upstairs on the first floor with a viewing gallery, any drinks spilled in the playing hall must be cleaned up immediately, free WiFi is available at the venue.</li>
+          <li>28. Parking, onsite hard-standing parking is available, with additional parking on a nearby field (at your own risk due to possible wet or muddy conditions).<br>Extra parking is also available at The Green Man Pub/Hotel car park.<br>There are no parking charges for players or spectators, but please ensure access for emergency services is not obstructed.</li>
+          <li>29. Payment of the entry fee £33.00 plus £1.00 booking fee should be paid by stripe's secure payment gateway.</li>
+          <p>No player shall be entered into the groups until all appropriate fees have been paid.</p>
+          <p>The entry fee will not be refunded 1 week prior to the closing date</p>
+          <p>The booking fee is not refundable.</p>
+        </ul>
+
+      </div>
+
+      <!-- Section 3: Tournament Questions -->
+      <div class="form-section">
+        <h1>Section 3</h1>
+        <p><strong>Tournament Questions</strong></p>
+        <p class="required-note"><strong>Note:</strong> Fields marked with a red asterisk (<span style="color: red; font-weight: bold;">*</span>) are required.</p>
+        <label for="name" class="required">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+        <label for="phone" class="required">Mobile Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="e.g. 07123 456789" pattern="[0-9]{11}" title="Please enter exactly 11 digits with no spaces or special characters" required>
+
+        <label for="email" class="required">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="e.g. your.email@example.com" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address (e.g. name@example.com)" required>
+
+        <label for="tte" class="required">Table Tennis England Membership Number</label>
+        <input type="text" id="tte" name="tte number" placeholder="e.g. 123456 or N/A" required>
+
+        <label for="other" class="required">National Association (if not affiliated to TTE)</label>
+        <input type="text" id="other" name="not tte aff" placeholder="e.g. your association or N/A" required>
+
+        <label for="club" class="required">Club of affiliation</label>
+        <input type="text" id="club" name="club" placeholder="e.g. your club name" required>
+
+        <label for="county" class="required">County of affiliation</label>
+        <input type="text" id="county" name="county" placeholder="e.g. your county name or N/A" required>
+
+        <label for="dob" class="required">Date of Birth dd-mm-yyyy</label>
+        <input type="text" id="dob" name="dob" placeholder="e.g. dd-mm-yyyy" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" title="Please enter date in DD-MM-YYYY format" required>
+
+        <label for="disability">Disability / Accessibility / Health Issues</label>
+        <input type="text" id="disability" name="disability" placeholder="Optional">
+
+        <div class="gender-section">
+          <label class="required">Gender Selection</label>
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 10px; font-weight: normal; cursor: pointer;">
+              <input type="checkbox" id="gender-male" name="gender" value="male" style="margin-right: 8px;"> Male
+            </label>
+            <label style="display: block; margin-bottom: 10px; font-weight: normal; cursor: pointer;">
+              <input type="checkbox" id="gender-female" name="gender" value="female" style="margin-right: 8px;"> Female
+            </label>
+          </div>
+        </div>
+
+        <div class="undertaking-section">
+          <label class="required">Tournament Undertaking</label>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ff6b6b; font-weight: bold;">NO ENTRY WILL BE ACCEPTED UNLESS THE FOLLOWING UNDERTAKING IS SIGNED</p>
+          <p style="font-size: 14px; margin: 10px 0; color: #ccc; line-height: 1.4;">I undertake to observe the regulations of the tournament, to abide by the decisions of the referee and to fulfil the schedule of play arranged for me unless prevented from doing so by circumstances beyond my control and accepted as such by the Referee.</p>
+          <div style="margin-bottom: 20px;">
+            <label for="player-name-print" class="required">Print Player Name (block capitals)</label>
+            <input type="text" id="player-name-print" name="player-name-print" placeholder="ENTER YOUR NAME IN BLOCK CAPITALS" style="text-transform: uppercase; margin-bottom: 15px;" required>
+            <label for="undertaking-date" class="required">Date</label>
+            <input type="text" id="undertaking-date" name="undertaking-date" placeholder="DD-MM-YYYY" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" title="Please enter date in DD-MM-YYYY format" style="margin-bottom: 15px;" required>
+
+          </div>
+        </div>
+
+        <div class="data-protection-section">
+          <label class="required">TTE Data Protection Consent</label>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ccc; line-height: 1.4;">Table Tennis England require consent to the use of personal data in the administration of this
+            competition, in accordance with the <a href="https://www.tabletennisengland.co.uk/privacy-policy/">TTE Privacy Policy</a>, the information will be shared where
+            necessary with the organisers and event committee. For a player under 16 this consent must
+            be given by a parent or guardian, who must also confirm agreement to the player’s participation
+            in the competition</p>
+          <p style="font-size: 14px; margin: 15px 0 10px 0; color: #ff6b6b; font-weight: bold;">If player is 16 or over:</p>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ccc; line-height: 1.4;">Data Protection: I am the player named above and I consent to the use by TTE of my personal data in the administration of this competition.</p>
+          <div style="margin-bottom: 20px;">
+            <label for="data-protection-name" class="required">Print Name (block capitals)</label>
+            <input type="text" id="data-protection-name" name="data-protection-name" placeholder="ENTER YOUR NAME IN BLOCK CAPITALS" style="text-transform: uppercase; margin-bottom: 15px;" required>
+            <label for="data-protection-date" class="required">Date</label>
+            <input type="text" id="data-protection-date" name="data-protection-date" placeholder="DD-MM-YYYY" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" title="Please enter date in DD-MM-YYYY format" style="margin-bottom: 15px;" required>
+
+          </div>
+        </div>
+
+        <div class="guardian-consent-section">
+          <label class="required">Parent/Guardian Consent (If player is under 16)</label>
+          <p style="font-size: 14px; margin: 15px 0 10px 0; color: #ff6b6b; font-weight: bold;">Data Protection & Activity Consent:</p>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ccc; line-height: 1.4;">I have legal responsibility for the player named above and I consent to his/her participation in the competition, and to the use by TTE of his/her personal data in its administration.</p>
+          <div style="margin-bottom: 20px;">
+            <label for="guardian-name" class="required">Print Name (block capitals)</label>
+            <input type="text" id="guardian-name" name="guardian-name" placeholder="ENTER PARENT/GUARDIAN NAME IN BLOCK CAPITALS" style="text-transform: uppercase; margin-bottom: 15px;" required>
+            <label for="guardian-relation" class="required">Relation to player</label>
+            <input type="text" id="guardian-relation" name="guardian-relation" placeholder="e.g. Parent, Guardian" style="margin-bottom: 15px;" required>
+            <label for="guardian-date" class="required">Date</label>
+            <input type="text" id="guardian-date" name="guardian-date" placeholder="DD-MM-YYYY" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" title="Please enter date in DD-MM-YYYY format" style="margin-bottom: 15px;" required>
+
+          </div>
+        </div>
+
+        <div class="anti-doping-section">
+          <label class="required">UK Anti-Doping Acknowledgement (If player is under 18)</label>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ccc; line-height: 1.4;">The UK Anti-Doping Rules apply to all persons entering an event or competition, for whichever is the longer of a) the length of their membership or licence period; or b) 12 months from the date of their participation, whether or not the entrant or licence holder is a citizen of, or resident in, the UK</p>
+          <p style="font-size: 14px; margin: 10px 0 15px 0; color: #ccc; line-height: 1.4;">A player under 18 may not participate in a Table Tennis England event or competition unless a parent or guardian of that player has consented to testing of that player in the following form:</p>
+          <p style="font-size: 14px; margin: 15px 0 10px 0; color: #ff6b6b; font-weight: bold;">Anti-Doping Acknowledgement:</p>
+          <p style="font-size: 14px; margin: 5px 0 15px 0; color: #ccc; line-height: 1.4;">I have legal responsibility for the player named above and I confirm that I have read the TTE Anti-Doping Regulations (Appendix P) and that I hereby acknowledge that the player is bound by these Regulations.</p>
+          <div style="margin-bottom: 20px;">
+            <label for="anti-doping-name" class="required">Print Name (block capitals)</label>
+            <input type="text" id="anti-doping-name" name="anti-doping-name" placeholder="ENTER PARENT/GUARDIAN NAME IN BLOCK CAPITALS" style="text-transform: uppercase; margin-bottom: 15px;" required>
+            <label for="anti-doping-relation" class="required">Relation to player</label>
+            <input type="text" id="anti-doping-relation" name="anti-doping-relation" placeholder="e.g. Parent, Guardian" style="margin-bottom: 15px;" required>
+            <label for="anti-doping-date" class="required">Date</label>
+            <input type="text" id="anti-doping-date" name="anti-doping-date" placeholder="DD-MM-YYYY" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" title="Please enter date in DD-MM-YYYY format" style="margin-bottom: 15px;" required>
+          </div>
+        </div>
+
+        <div style="background-color: rgba(76, 175, 80, 0.1); border: 2px solid #4CAF50; border-radius: 8px; padding: 15px; margin: 20px 0; text-align: center;">
+          <p style="font-size: 16px; margin: 5px 0; color: #4CAF50; font-weight: bold;">Ready to Submit and Pay?</p>
+          <p style="font-size: 14px; margin: 10px 0; color: #ccc; line-height: 1.4;">A copy of your responses will be emailed to the address that you provided. Submit and Pay will take you to a secure payment page.</p>
+          <p style="font-size: 14px; margin: 5px 0; color: #ccc; line-height: 1.4;">Payment is £33 plus £1 booking fee</p>
+          <p style="font-size: 14px; margin: 5px 0; color: #ccc;">Please ensure all information is correct before submitting.</p>
+        </div>
+          
+        <input type="submit" id="submitBtn" value="Submit and Pay">
+        <!-- Design credit -->
+        <div style="text-align: center; margin-top: 20px; padding: 10px; font-size: 12px; color: white; border-bottom: 1px solid rgba(255,255,255,0.2);">
+          Form designed by: <a href="mailto:carl.johnson.batts@gmail.com" style="color: white; text-decoration: none;">carl.johnson.batts@gmail.com</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Gender checkbox validation
+      const maleCheckbox = document.getElementById('gender-male');
+      const femaleCheckbox = document.getElementById('gender-female');
+
+      maleCheckbox.addEventListener('change', function () {
+        if (this.checked) femaleCheckbox.checked = false;
+      });
+
+      femaleCheckbox.addEventListener('change', function () {
+        if (this.checked) maleCheckbox.checked = false;
+      });
+      // Stripe integration pk test key here
+      const stripe = Stripe('pk_test_51StmgXA7Kc4ghTjhS7WWE0AbSk8v256DI18jRIeejEPEciQehSSceKY2LwiKsbpVUNPlsozJx1bVWkhUndG52xlz007G0MYLag');
+      const form = document.getElementById('entryForm');
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        // Validate gender
+        if (!maleCheckbox.checked && !femaleCheckbox.checked) {
+          alert('Please select your gender category (Male or Female).');
+          return;
+        }
+
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.value = 'Redirecting to payment...';
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+          const response = await fetch(
+            'https://script.google.com/macros/s/AKfycbw9QycJ4aEN6wccI98DJJxrl_cltvC8ur_NKlxdNoERxVSvJ095EZx2iXjCNU1MJm2ewA/exec',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'createCheckout',
+          formData: data
+        })
+      }
+    );
+
+        const result = await response.json();
+
+        if (!result.sessionId) {
+          throw new Error('No session ID returned');
+        }
+
+        await stripe.redirectToCheckout({ sessionId: result.sessionId });
+
+        } catch (err) {
+          console.error(err);
+          alert('Payment setup failed. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.value = 'Submit and Pay';
+        }
+      });
+    });
+
+
+</script>
+</body>
+</html>
+

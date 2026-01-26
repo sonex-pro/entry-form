@@ -1,0 +1,241 @@
+/* Global base styles - apply to all screens */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: url('batts.webp') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 8px;
+}
+
+.form-container {
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+  padding: 20px 30px; /* balanced horizontal padding */
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+h1 {
+  font-family: 'Georgia', serif;
+  color: #ffffff;
+  font-size: 2rem;
+  margin: 0.2rem 0;
+  padding: 0.5rem 0;
+  width: 100%;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7),
+               -1px -1px 0 #000,
+                1px -1px 0 #000,
+               -1px 1px 0 #000,
+                1px 1px 0 #000;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: 'Georgia', serif;
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.info-text {
+  font-size: 0.95em;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.info-text ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+a {
+  color: #80bfff;
+}
+
+.bribar-yellow {
+  color: #ffe100;
+  font-weight: bold;
+}
+
+.form-section {
+  display: none;
+}
+
+.form-section.active {
+  display: block;
+}
+
+.form-section ul {
+  margin: 0 0 20px 0;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.form-section li {
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="tel"],
+form input[type="date"],
+form input[type="email"],
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-sizing: border-box;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  opacity: 1; /* Ensure placeholder is visible */
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+form button,
+form input[type="submit"],
+button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1;
+}
+
+form button:hover,
+form input[type="submit"]:hover,
+button:hover {
+  background-color: #1669c1;
+}
+
+form input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* ---------------------------
+   Media queries (mobile first)
+--------------------------- */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  .form-container {
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .buttons {
+    flex-direction: column;
+  }
+
+  .form-container {
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .form-container {
+    padding: 10px 12px;
+  }
+}
+
+/* Undertaking section styling */
+.undertaking-section {
+  border: 2px solid #f3e28c;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px 0;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.undertaking-section label.required {
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Data Protection section styling */
+.data-protection-section {
+  border: 2px solid #f3e28c;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px 0;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.data-protection-section label.required {
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Guardian Consent section styling */
+.guardian-consent-section {
+  border: 2px solid #f3e28c;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px 0;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.guardian-consent-section label.required {
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Anti-Doping section styling */
+.anti-doping-section {
+  border: 2px solid #f3e28c;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px 0;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.anti-doping-section label.required {
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Gender selection section styling */
+.gender-section {
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px 0;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.gender-section label.required {
+  margin-bottom: 10px;
+  display: block;
+}
