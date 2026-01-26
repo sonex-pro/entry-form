@@ -293,10 +293,11 @@
 
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-
+        
+        // Google Apps Script URL
         try {
           const response = await fetch(
-            'https://script.google.com/macros/s/AKfycbw9QycJ4aEN6wccI98DJJxrl_cltvC8ur_NKlxdNoERxVSvJ095EZx2iXjCNU1MJm2ewA/exec',
+            'https://script.google.com/macros/s/AKfycbwgaOg12lLTMiaGXsFqPWiucJK4xqdWXnl4MpzVKNL9ToNOxadZNiP4ENyV9wz4rq_5/exec',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
