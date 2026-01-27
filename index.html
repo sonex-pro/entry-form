@@ -292,21 +292,16 @@
         submitBtn.value = 'Redirecting to payment...';
 
         const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        
-        // Google Apps Script URL
+        formData.append('action', 'createCheckout');
+        // google script URL 
         try {
           const response = await fetch(
-            'https://script.google.com/macros/s/AKfycbwgaOg12lLTMiaGXsFqPWiucJK4xqdWXnl4MpzVKNL9ToNOxadZNiP4ENyV9wz4rq_5/exec',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          action: 'createCheckout',
-          formData: data
-        })
-      }
-    );
+            'https://script.google.com/macros/s/AKfycbxPP-aiEyuFKvS5KR5D1lMKKatl82W4ONt2RLercLu8qqSKLV9FLgqhWAAsXH7DBT5A/exec',
+            {
+              method: 'POST',
+              body: formData
+            }
+          );
 
         const result = await response.json();
 
