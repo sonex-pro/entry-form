@@ -1,4 +1,4 @@
-export async function handler(event, context) {
+exports.handler = async function (event, context) {
   console.log("Function called with method:", event.httpMethod);
   console.log("Headers:", event.headers);
   console.log("Body:", event.body);
@@ -59,4 +59,4 @@ export async function handler(event, context) {
       body: JSON.stringify({ error: "Internal Server Error", details: error.message }),
     };
   }
-}
+};
