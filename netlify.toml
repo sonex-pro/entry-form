@@ -1,12 +1,5 @@
 [build]
-  functions = "netlify/functions"
+  publish = "."   # Your site root, or replace with build folder if using a framework
 
-[[redirects]]
-  from = "/.netlify/*"
-  to = "/.netlify/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 404
+[functions]
+  directory = "netlify/functions"

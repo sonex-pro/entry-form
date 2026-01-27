@@ -264,52 +264,44 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Gender checkbox validation
       const maleCheckbox = document.getElementById('gender-male');
       const femaleCheckbox = document.getElementById('gender-female');
-
-      maleCheckbox.addEventListener('change', function () {
-        if (this.checked) femaleCheckbox.checked = false;
-      });
-
-      femaleCheckbox.addEventListener('change', function () {
-        if (this.checked) maleCheckbox.checked = false;
-      });
-      // Stripe integration pk test key here
-      const stripe = Stripe('pk_test_51StmgXA7Kc4ghTjhS7WWE0AbSk8v256DI18jRIeejEPEciQehSSceKY2LwiKsbpVUNPlsozJx1bVWkhUndG52xlz007G0MYLag');
       const form = document.getElementById('entryForm');
+      const submitBtn = document.getElementById('submitBtn');
+
+      // Ensure only one gender checkbox can be selected
+      maleCheckbox.addEventListener('change', () => { if (maleCheckbox.checked) femaleCheckbox.checked = false; });
+      femaleCheckbox.addEventListener('change', () => { if (femaleCheckbox.checked) maleCheckbox.checked = false; });
+
+      const stripe = Stripe('pk_test_51StmgXA7Kc4ghTjhS7WWE0AbSk8v256DI18jRIeejEPEciQehSSceKY2LwiKsbpVUNPlsozJx1bVWkhUndG52xlz007G0MYLag');
+
       form.addEventListener('submit', async function (event) {
         event.preventDefault();
 
-        // Validate gender
         if (!maleCheckbox.checked && !femaleCheckbox.checked) {
           alert('Please select your gender category (Male or Female).');
           return;
         }
 
-        const submitBtn = document.getElementById('submitBtn');
         submitBtn.disabled = true;
         submitBtn.value = 'Redirecting to payment...';
 
         const formData = new FormData(form);
-        formData.append('action', 'createCheckout');
-        // google script URL 
+        const jsonData = {};
+        formData.forEach((value, key) => { jsonData[key] = value; });
+
         try {
-          const response = await fetch(
-            '/.netlify/functions/create-checkout',
-            {
-              method: 'POST',
-              body: formData
-            }
-          );
+          const response = await fetch('/.netlify/functions/create-checkout', {
+            method: 'POST',
+            body: JSON.stringify(jsonData),
+            headers: { 'Content-Type': 'application/json' }
+          });
 
-        const result = await response.json();
+          const result = await response.json();
 
-        if (!result.sessionId) {
-          throw new Error('No session ID returned');
-        }
+          if (!result.sessionId) throw new Error('No session ID returned');
 
-        await stripe.redirectToCheckout({ sessionId: result.sessionId });
+          await stripe.redirectToCheckout({ sessionId: result.sessionId });
 
         } catch (err) {
           console.error(err);
@@ -319,9 +311,7 @@
         }
       });
     });
-
-
-</script>
+  </script>
 </body>
 </html>
 
