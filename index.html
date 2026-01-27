@@ -297,7 +297,17 @@
             headers: { 'Content-Type': 'application/json' }
           });
 
-          const result = await response.json();
+          const responseText = await response.text();
+          let result;
+          try {
+            result = JSON.parse(responseText);
+          } catch (e) {
+            throw new Error(`Checkout endpoint did not return JSON (HTTP ${response.status}). First 200 chars: ${responseText.slice(0, 200)}`);
+          }
+
+          if (!response.ok) {
+            throw new Error(result?.error || `Checkout failed (HTTP ${response.status})`);
+          }
 
           if (!result.sessionId) throw new Error('No session ID returned');
 
